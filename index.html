@@ -37,50 +37,70 @@
     <!-- Основной контент -->
     <main class="main-container">
       <!-- Фильтры -->
-      <section class="filters mb-6">
-        <h2>Фильтры</h2>
-        <div class="filters-row">
-          <div class="filter-group">
-            <label class="filter-label">Тип аудитории</label>
-            <select class="filter-select">
-              <option value="">Не выбрано</option>
-              <option value="lectorium">Лекториум</option>
-              <option value="talking">Переговорная</option>
-              <option value="practice">Практическая</option>
-              <option value="lab">Лаборатория</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label class="filter-label">Вместимость</label>
-            <input type="number" min="10" max="200" class="filter-input">
-          </div>
-          <div class="filter-group">
-            <label class="filter-label">Дата</label>
-            <input type="date" class="filter-input">
-          </div>
-          <div class="filter-group">
-            <label class="filter-label">Время</label>
-            <div class="filters-time-row">
-              <input type="time" class="filter-input" placeholder="С">
-              <input type="time" class="filter-input" placeholder="До">
+      <section class="section">
+        <h2 class="section__header">Фильтры</h2>
+        <form class="section__content">
+          <div class="filters">
+            <div class="filter filter--type">
+              <label class="filter__label">Тип аудитории
+                <select class="filter__input input">
+                  <option value="" checked>Не выбрано</option>
+                  <option value="lectorium">Лекториум</option>
+                  <option value="talking">Переговорная</option>
+                  <option value="practice">Практическая</option>
+                  <option value="lab">Лаборатория</option>
+                </select>
+              </label>
+            </div>
+            <div class="filter filter--place">
+              <label class="filter__label">Вместимость</label>
+              <div class="filter__input-group">
+                <input class="filter__input input" type="number" placeholder="От" min="0" max="200">
+                <input class="filter__input input" type="number" placeholder="До" min="0" max="200">
+              </div>
+            </div>
+            <div class="filter filter--start">
+              <label class="filter__label">Начало периода бронирования
+                <input class="filter__input input" type="datetime-local">
+              </label>
+            </div>
+            <div class="filter filter--end">
+              <label class="filter__label">Конец периода бронирования
+                <input class="filter__input input" type="datetime-local">
+              </label>
+            </div>
+            <div class="filter filter-things">
+              <label class="filter__label">Инфаструктура</label>
+              <div class="filter__input input-group--horizontal">
+                <label>
+                  <input class="filter__input input" name="filter-things" type="checkbox">Кресла, парта
+                </label>
+                <label>
+                  <input class="filter__input input" name="filter-things" type="checkbox">Диваны
+                </label>
+                <label>
+                  <input class="filter__input input" name="filter-things" type="checkbox">Кондиционер
+                </label>
+                <label>
+                  <input class="filter__input input" name="filter-things" type="checkbox">Доска
+                </label>
+                <label>
+                  <input class="filter__input input" name="filter-things" type="checkbox">Проектор
+                </label>
+                <label>
+                  <input class="filter__input input" name="filter-things" type="checkbox">Компьютеры или моноблоки
+                </label>
+                <label>
+                  <input class="filter__input input" name="filter-things" type="checkbox">Вешалки или шкаф
+                </label>
+              </div>
             </div>
           </div>
-          <div class="filter-group">
-            <label class="filter-label">Инфаструктура</label>
-            <div class="filters-type-row">
-              <label><input name="parameter-infrastructure" type="checkbox" class="filter-input">Кресла, парта</label>
-              <label><input name="parameter-infrastructure" type="checkbox" class="filter-input">Диваны</label>
-              <label><input name="parameter-infrastructure" type="checkbox" class="filter-input">Кондиционер</label>
-              <label><input name="parameter-infrastructure" type="checkbox" class="filter-input">Доска</label>
-              <label><input name="parameter-infrastructure" type="checkbox" class="filter-input">Проектор</label>
-              <label><input name="parameter-infrastructure" type="checkbox" class="filter-input">Компьютеры или моноблоки</label>
-              <label><input name="parameter-infrastructure" type="checkbox" class="filter-input">Вешалки или шкаф</label>
-            </div>
+          <div class="filters__buttons filter-group-btn">
+            <button class="filters__button button" type="submit">Применить</button>
+            <button class="filters__button button button--secondary" type="reset">Сбросить</button>
           </div>
-          <div class="filter-group filter-group-btn">
-            <button class="btn btn-primary w-full">Применить фильтры</button>
-          </div>
-        </div>
+        </form>
       </section>
 
       <!-- Каталог аудиторий -->
