@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="./styles/auditoriums.css">
   </head>
 
-  <body class="bg-gray-100 font-sans">
-    <!-- Навигация -->
-    <nav class="nav">
+  <body>
+    <header class="nav">
       <div class="nav__container">
         <div class="nav__brand">
           <i class="fas fa-university nav__icon"></i>
@@ -24,7 +23,7 @@
           <button id="loginBtn" class="main-btn">Вход</button>
         </div>
       </div>
-    </nav>
+    </header>
 
     <!-- Мобильное меню -->
     <div id="mobileMenu" class="mobile-menu hidden">
@@ -38,7 +37,7 @@
     <main class="main-container">
       <!-- Фильтры -->
       <section class="filters mb-6">
-        <h2 class="filters-heading-section">Фильтры</h2>
+        <h2>Фильтры</h2>
         <div class="filters-row">
           <div class="filter-group">
             <label class="filter-label">Тип аудитории</label>
@@ -83,18 +82,10 @@
         </div>
       </section>
 
-      <!-- Основное содержимое -->
-      <div class="flex-1 p-6">
-        <div class="flex justify-between items-center mb-6">
-          <h1 class="heading-main">Доступные аудитории</h1>
-          <div class="flex space-x-2">
-            <button id="floorPlanBtn" class="btn btn-accent flex items-center"><i class="fas fa-map-marked-alt mr-2"></i> План этажа</button>
-            <button id="filterToggle" class="btn btn-primary md:hidden"><i class="fas fa-filter"></i></button>
-          </div>
-        </div>
-
-        <!-- Каталог аудиторий -->
-        <section class="auditorium-list">
+      <!-- Каталог аудиторий -->
+      <section>
+        <h2>Каталог</h2> 
+        <div class="auditoriums-list">
           <article class="auditorium-card">
             <div class="auditorium-card__title">
               <h3 class="auditorium-card__header">it-0</h3>
@@ -240,8 +231,8 @@
               <span class="auditorium-card__person">Carl Sagan</span>
             </div>
             <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ?</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
               <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
             </div>
           </article>
@@ -257,51 +248,6 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
-            </div>
-          </article>
-          <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-12</h3>
-              <span class="auditorium-card__status auditorium-card__status--free">Недоступна</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">"IT-центр"</span>
-              <span class="auditorium-card__person"></span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: ?</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
-            </div>
-          </article>
-          <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-13</h3>
-              <span class="auditorium-card__status auditorium-card__status--disabled">Недоступна</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Начальник управления "IT-центр", к.т.н., доцент Мария Борисовна Булакина</span>
-              <span class="auditorium-card__person"></span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 35 человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: Лекционная</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: Проектор, доска</div>
-            </div>
-          </article>
-          <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-14</h3>
-              <span class="auditorium-card__status auditorium-card__status--disabled">Недоступна</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Заведующий кафедрой к.ф.-м.н., доцент Сергей Сергеевич Крылов</span>
-              <span class="auditorium-card__person"></span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: ?</div>
               <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
             </div>
           </article>
@@ -331,7 +277,7 @@
             </div>
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
               <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
             </div>
           </article>
@@ -365,8 +311,8 @@
               <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
             </div>
           </article>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
     <!-- Модальное окно входа -->
     <div id="loginModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden z-50">
