@@ -102,8 +102,7 @@
     <div class="flex">
       <!-- Боковая панель (фильтры) -->
       <div id="sidebar" class="sidebar bg-white w-64 p-4 shadow-md hidden md:block">
-        <h2 class="text-lg font-semibold mb-4 text-dark">Фильтры</h2>
-
+        <h2 class="text-lg font-semibold mb-4 text-dark">Параметры поиска</h2>
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700 mb-1">Корпус</label>
           <select
@@ -177,9 +176,14 @@
       <div class="flex-1 p-6">
         <div class="flex justify-between items-center mb-6">
           <h1 class="text-2xl font-bold text-dark">Доступные аудитории</h1>
-          <button id="filterToggle" class="md:hidden bg-primary text-white p-2 rounded-md">
-            <i class="fas fa-filter"></i>
-          </button>
+          <div class="flex space-x-2">
+            <button id="floorPlanBtn" class="bg-accent text-white p-2 rounded-md flex items-center hover:bg-primary transition">
+              <i class="fas fa-map-marked-alt mr-2"></i> План этажа
+            </button>
+            <button id="filterToggle" class="md:hidden bg-primary text-white p-2 rounded-md">
+              <i class="fas fa-filter"></i>
+            </button>
+          </div>
         </div>
 
         <!-- Календарь -->
@@ -252,215 +256,500 @@
 
         <!-- Список аудиторий -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <!-- Аудитория 1 -->
+          <!-- Аудитории it-1 ... it-19 -->
           <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
             <div class="p-4">
               <div class="flex justify-between items-start">
                 <div>
-                  <h3 class="text-lg font-semibold text-dark">Аудитория 101</h3>
+                  <h3 class="text-lg font-semibold text-dark">it-1</h3>
                   <p class="text-gray-500 text-sm">Главный корпус</p>
                 </div>
                 <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
               </div>
-
               <div class="mt-4 flex items-center text-sm text-gray-600">
                 <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 30 человек</span>
+                <span>Вместимость: 20 человек</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-door-open mr-2"></i>
                 <span>Тип: Лекционная</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-tv mr-2"></i>
                 <span>Оборудование: Проектор, доска</span>
               </div>
             </div>
-
             <div class="bg-gray-50 px-4 py-3 flex justify-end">
-              <button
-                class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">
-                Забронировать
-              </button>
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
             </div>
           </div>
-
-          <!-- Аудитория 2 -->
           <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
             <div class="p-4">
               <div class="flex justify-between items-start">
                 <div>
-                  <h3 class="text-lg font-semibold text-dark">Аудитория 205</h3>
+                  <h3 class="text-lg font-semibold text-dark">it-2</h3>
                   <p class="text-gray-500 text-sm">Корпус А</p>
                 </div>
-                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично
-                  занята</span>
+                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
               </div>
-
               <div class="mt-4 flex items-center text-sm text-gray-600">
                 <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 20 человек</span>
+                <span>Вместимость: 25 человек</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-door-open mr-2"></i>
                 <span>Тип: Практическая</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-tv mr-2"></i>
                 <span>Оборудование: Интерактивная доска</span>
               </div>
             </div>
-
             <div class="bg-gray-50 px-4 py-3 flex justify-end">
-              <button
-                class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">
-                Забронировать
-              </button>
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
             </div>
           </div>
-
-          <!-- Аудитория 3 -->
           <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
             <div class="p-4">
               <div class="flex justify-between items-start">
                 <div>
-                  <h3 class="text-lg font-semibold text-dark">Компьютерный класс 301</h3>
+                  <h3 class="text-lg font-semibold text-dark">it-3</h3>
                   <p class="text-gray-500 text-sm">Корпус Б</p>
                 </div>
                 <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Занята</span>
               </div>
-
               <div class="mt-4 flex items-center text-sm text-gray-600">
                 <i class="fas fa-users mr-2"></i>
                 <span>Вместимость: 15 человек</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-door-open mr-2"></i>
                 <span>Тип: Компьютерный класс</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-tv mr-2"></i>
                 <span>Оборудование: 15 ПК, проектор</span>
               </div>
             </div>
-
             <div class="bg-gray-50 px-4 py-3 flex justify-end">
-              <button class="book-btn text-white bg-gray-400 px-4 py-2 rounded-md text-sm font-medium cursor-not-allowed"
-                disabled>
-                Недоступно
-              </button>
+              <button class="book-btn text-white bg-gray-400 px-4 py-2 rounded-md text-sm font-medium cursor-not-allowed" disabled>Недоступно</button>
             </div>
           </div>
-
-          <!-- Аудитория 4 -->
           <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
             <div class="p-4">
               <div class="flex justify-between items-start">
                 <div>
-                  <h3 class="text-lg font-semibold text-dark">Лаборатория 402</h3>
+                  <h3 class="text-lg font-semibold text-dark">it-4</h3>
                   <p class="text-gray-500 text-sm">Корпус В</p>
                 </div>
                 <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
               </div>
-
               <div class="mt-4 flex items-center text-sm text-gray-600">
                 <i class="fas fa-users mr-2"></i>
                 <span>Вместимость: 12 человек</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-door-open mr-2"></i>
                 <span>Тип: Лаборатория</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-tv mr-2"></i>
                 <span>Оборудование: Лабораторные столы</span>
               </div>
             </div>
-
             <div class="bg-gray-50 px-4 py-3 flex justify-end">
-              <button
-                class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">
-                Забронировать
-              </button>
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
             </div>
           </div>
-
-          <!-- Аудитория 5 -->
           <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
             <div class="p-4">
               <div class="flex justify-between items-start">
                 <div>
-                  <h3 class="text-lg font-semibold text-dark">Аудитория 103</h3>
+                  <h3 class="text-lg font-semibold text-dark">it-5</h3>
                   <p class="text-gray-500 text-sm">Главный корпус</p>
                 </div>
                 <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
               </div>
-
               <div class="mt-4 flex items-center text-sm text-gray-600">
                 <i class="fas fa-users mr-2"></i>
                 <span>Вместимость: 50 человек</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-door-open mr-2"></i>
                 <span>Тип: Лекционная</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-tv mr-2"></i>
                 <span>Оборудование: Проектор, микрофон</span>
               </div>
             </div>
-
             <div class="bg-gray-50 px-4 py-3 flex justify-end">
-              <button
-                class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">
-                Забронировать
-              </button>
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
             </div>
           </div>
-
-          <!-- Аудитория 6 -->
           <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
             <div class="p-4">
               <div class="flex justify-between items-start">
                 <div>
-                  <h3 class="text-lg font-semibold text-dark">Аудитория 207</h3>
+                  <h3 class="text-lg font-semibold text-dark">it-6</h3>
                   <p class="text-gray-500 text-sm">Корпус А</p>
                 </div>
-                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично
-                  занята</span>
+                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
               </div>
-
               <div class="mt-4 flex items-center text-sm text-gray-600">
                 <i class="fas fa-users mr-2"></i>
                 <span>Вместимость: 25 человек</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-door-open mr-2"></i>
                 <span>Тип: Практическая</span>
               </div>
-
               <div class="mt-2 flex items-center text-sm text-gray-600">
                 <i class="fas fa-tv mr-2"></i>
                 <span>Оборудование: Доска</span>
               </div>
             </div>
-
             <div class="bg-gray-50 px-4 py-3 flex justify-end">
-              <button
-                class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">
-                Забронировать
-              </button>
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <!-- it-7 ... it-19 -->
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-7</h3>
+                  <p class="text-gray-500 text-sm">Корпус Б</p>
+                </div>
+                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 18 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Компьютерный класс</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: 18 ПК, проектор</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-8</h3>
+                  <p class="text-gray-500 text-sm">Корпус В</p>
+                </div>
+                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 22 человека</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Лаборатория</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: Лабораторные столы, проектор</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-9</h3>
+                  <p class="text-gray-500 text-sm">Главный корпус</p>
+                </div>
+                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 40 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Лекционная</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: Проектор, доска</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-10</h3>
+                  <p class="text-gray-500 text-sm">Корпус А</p>
+                </div>
+                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 30 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Практическая</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: Интерактивная доска</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-11</h3>
+                  <p class="text-gray-500 text-sm">Корпус Б</p>
+                </div>
+                <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Занята</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 16 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Компьютерный класс</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: 16 ПК, проектор</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-gray-400 px-4 py-2 rounded-md text-sm font-medium cursor-not-allowed" disabled>Недоступно</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-12</h3>
+                  <p class="text-gray-500 text-sm">Корпус В</p>
+                </div>
+                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 14 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Лаборатория</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: Лабораторные столы</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-13</h3>
+                  <p class="text-gray-500 text-sm">Главный корпус</p>
+                </div>
+                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 35 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Лекционная</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: Проектор, доска</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-14</h3>
+                  <p class="text-gray-500 text-sm">Корпус А</p>
+                </div>
+                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 28 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Практическая</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: Интерактивная доска</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-15</h3>
+                  <p class="text-gray-500 text-sm">Корпус Б</p>
+                </div>
+                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 19 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Компьютерный класс</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: 19 ПК, проектор</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-16</h3>
+                  <p class="text-gray-500 text-sm">Корпус В</p>
+                </div>
+                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 21 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Лаборатория</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: Лабораторные столы, проектор</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-17</h3>
+                  <p class="text-gray-500 text-sm">Главный корпус</p>
+                </div>
+                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 38 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Лекционная</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: Проектор, доска</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-18</h3>
+                  <p class="text-gray-500 text-sm">Корпус А</p>
+                </div>
+                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 27 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Практическая</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: Интерактивная доска</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
+            </div>
+          </div>
+          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark">it-19</h3>
+                  <p class="text-gray-500 text-sm">Корпус Б</p>
+                </div>
+                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
+              </div>
+              <div class="mt-4 flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-2"></i>
+                <span>Вместимость: 17 человек</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-door-open mr-2"></i>
+                <span>Тип: Компьютерный класс</span>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-600">
+                <i class="fas fa-tv mr-2"></i>
+                <span>Оборудование: 17 ПК, проектор</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 flex justify-end">
+              <button class="book-btn text-white bg-primary hover:bg-secondary px-4 py-2 rounded-md text-sm font-medium transition duration-300">Забронировать</button>
             </div>
           </div>
         </div>
@@ -765,6 +1054,22 @@
       </div>
     </div>
 
+    <!-- Модальное окно плана этажа -->
+    <div id="floorPlanModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden z-50">
+      <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full p-6 relative">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-dark">План этажа</h3>
+          <button id="closeFloorPlanModal" class="text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="flex justify-center items-center min-h-[300px]">
+          <!-- Здесь может быть изображение плана этажа -->
+          <span class="text-gray-400">[План этажа будет здесь]</span>
+        </div>
+      </div>
+    </div>
+
     <script>
       // Обработчики модальных окон
       document.addEventListener('DOMContentLoaded', function () {
@@ -901,7 +1206,27 @@
             adminModal.classList.add('hidden');
           }
         });
+
+        // Модальное окно плана этажа
+        const floorPlanBtn = document.getElementById('floorPlanBtn');
+        const floorPlanModal = document.getElementById('floorPlanModal');
+        const closeFloorPlanModal = document.getElementById('closeFloorPlanModal');
+
+        floorPlanBtn.addEventListener('click', function () {
+          floorPlanModal.classList.remove('hidden');
+        });
+
+        closeFloorPlanModal.addEventListener('click', function () {
+          floorPlanModal.classList.add('hidden');
+        });
+
+        window.addEventListener('click', function (e) {
+          if (e.target === floorPlanModal) {
+            floorPlanModal.classList.add('hidden');
+          }
+        });
       });
     </script>
   </body>
 </html>
+
