@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Система бронирования аудиторий</title>
+    <title>Бронирование аудиторий на IT-этаже</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
@@ -17,11 +17,11 @@
       <div class="nav__container">
         <div class="nav__brand">
           <i class="fas fa-university nav__icon"></i>
-          <span>Аудиторный фонд</span>
+          <span>Бронирование аудиторий на IT-этаже</span>
         </div>
         <div class="nav__links">
-          <button id="registerBtn" class="main-btn">Регистрация</button>
-          <button id="loginBtn" class="main-btn">Вход</button>
+          <button id="button-login" class="button">Вход</button>
+          <button id="button-register" class="button button--secondary">Регистрация</button>
         </div>
       </div>
     </header>
@@ -35,77 +35,99 @@
     </div>
 
     <!-- Основной контент -->
-    <main class="main-container">
+    <main class="main">
       <!-- Фильтры -->
       <section class="section">
         <h2 class="section__header">Фильтры</h2>
-        <form class="section__content">
-          <div class="filters">
-            <div class="filter filter--type">
-              <label class="filter__label">Тип аудитории
-                <select class="filter__input input">
-                  <option value="" checked>Не выбрано</option>
+        <div class="section__content">
+          <form class="filtres">
+            <div class="filters__content">
+              <div class="filter">
+                <label class="filter__label label" for="filter-type">Тип аудитории</label>
+                <select class="filter__input input" id="filter-type">
+                  <option value="" selected>Не выбрано</option>
                   <option value="lectorium">Лекториум</option>
                   <option value="talking">Переговорная</option>
                   <option value="practice">Практическая</option>
                   <option value="lab">Лаборатория</option>
                 </select>
-              </label>
-            </div>
-            <div class="filter filter--place">
-              <label class="filter__label">Вместимость</label>
-              <div class="filter__input-group">
-                <input class="filter__input input" type="number" placeholder="От" min="0" max="200">
-                <input class="filter__input input" type="number" placeholder="До" min="0" max="200">
+              </div>
+              <div class="filter">
+                <label class="filter__label label" for="filter-place">Вместимость</label>
+                <div class="filter__input-group">
+                  <input
+                    class="filter__input input"
+                    id="filter-place-min"
+                    type="number"
+                    placeholder="От"
+                    min="0" max="200"
+                  >
+                  <input
+                    class="filter__input input"
+                    id="filter-place-max"
+                    type="number"
+                    placeholder="До" 
+                    min="0" max="200"
+                  >
+                </div>
+              </div>
+              <div class="filter">
+                <label class="filter__label label" for="filter-start">Начало периода бронирования</label>
+                <input
+                  class="filter__input input"
+                  id="filter-start"
+                  type="datetime-local"
+                >
+              </div>
+              <div class="filter">
+                <label class="filter__label label" for="filter-end">Конец периода бронирования</label>
+                <input
+                  class="filter__input input"
+                  id="filter-end"
+                  type="datetime-local"
+                >
+              </div>
+              <div class="filter filter--things">
+                <label class="filter__label label">Инфаструктура</label>
+                <div class="filter__input-group">
+                  <div>
+                    <input class="filter__input input" name="filter-things" type="checkbox">
+                    <label class="filter__label label--checkbox">Диваны</label>
+                  </div>
+                  <div>
+                    <input class="filter__input input" name="filter-things" type="checkbox">
+                    <label class="filter__label label--checkbox">Кондиционер</label>
+                  </div>
+                  <div>
+                    <input class="filter__input input" name="filter-things" type="checkbox">
+                    <label class="filter__label label--checkbox">Доска</label>
+                  </div>
+                  <div>
+                    <input class="filter__input input" name="filter-things" type="checkbox">
+                    <label class="filter__label label--checkbox">Проектор</label>
+                  </div>
+                  <div>
+                    <input class="filter__input input" name="filter-things" type="checkbox">
+                    <label class="filter__label label--checkbox">Компьютеры</label>
+                  </div>
+                  <div>
+                    <input class="filter__input input" name="filter-things" type="checkbox">
+                    <label class="filter__label label--checkbox">Гардероб</label>
+                  </div>          
+                </div>
               </div>
             </div>
-            <div class="filter filter--start">
-              <label class="filter__label">Начало периода бронирования
-                <input class="filter__input input" type="datetime-local">
-              </label>
+            <div class="filters__buttons filter-group-btn">
+              <button class="filters__button button" type="submit">Применить</button>
+              <button class="filters__button button button--secondary" type="reset">Сбросить</button>
             </div>
-            <div class="filter filter--end">
-              <label class="filter__label">Конец периода бронирования
-                <input class="filter__input input" type="datetime-local">
-              </label>
-            </div>
-            <div class="filter filter-things">
-              <label class="filter__label">Инфаструктура</label>
-              <div class="filter__input input-group--horizontal">
-                <label>
-                  <input class="filter__input input" name="filter-things" type="checkbox">Кресла, парта
-                </label>
-                <label>
-                  <input class="filter__input input" name="filter-things" type="checkbox">Диваны
-                </label>
-                <label>
-                  <input class="filter__input input" name="filter-things" type="checkbox">Кондиционер
-                </label>
-                <label>
-                  <input class="filter__input input" name="filter-things" type="checkbox">Доска
-                </label>
-                <label>
-                  <input class="filter__input input" name="filter-things" type="checkbox">Проектор
-                </label>
-                <label>
-                  <input class="filter__input input" name="filter-things" type="checkbox">Компьютеры или моноблоки
-                </label>
-                <label>
-                  <input class="filter__input input" name="filter-things" type="checkbox">Вешалки или шкаф
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="filters__buttons filter-group-btn">
-            <button class="filters__button button" type="submit">Применить</button>
-            <button class="filters__button button button--secondary" type="reset">Сбросить</button>
-          </div>
-        </form>
+          </form>
+        </div>
       </section>
 
       <!-- Каталог аудиторий -->
-      <section>
-        <h2>Каталог</h2> 
+      <section class="section">
+        <h2 class="section__header">Каталог</h2> 
         <div class="auditoriums-list">
           <article class="auditorium-card">
             <div class="auditorium-card__title">
@@ -119,7 +141,7 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 30 человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: столы, кресла, шкаф, маркерная доска</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: маркерная доска, зарядки, телевизор, гардероб</div>
             </div>
           </article>
           <article class="auditorium-card">
@@ -314,7 +336,7 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 38 человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: 23 моноблока, маркерная доска, проектор, доска</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: 23 компьютера, маркерная доска, проектор, гардероб</div>
             </div>
           </article>
           <article class="auditorium-card">
