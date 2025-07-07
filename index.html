@@ -6,22 +6,8 @@
     <title>Система бронирования аудиторий</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: '#3b82f6',
-              secondary: '#1e40af',
-              accent: '#10b981',
-              dark: '#1f2937',
-              light: '#f9fafb'
-            }
-          }
-        }
-      }
-    </script>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/auditoriums.css">
   </head>
 
   <body class="bg-gray-100 font-sans">
@@ -168,171 +154,278 @@
         </div>
 
         <!-- Каталог аудиторий -->
-        <div class="auditorium-list">
-          <!-- Карточки аудитории -->
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-0</div>
-            <div class="auditorium-card__description">Пространство самоподготовки</div>
-            <div class="auditorium-card__person">Linus Torvalds</div>
-            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: 30 человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: практическая</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: столы, кресла, шкаф, маркерная доска</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-1</div>
-            <div class="auditorium-card__description">VR зона</div>
-            <div class="auditorium-card__person">John Carmack</div>
-            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-2</div>
-            <div class="auditorium-card__description">Лаборатория XR</div>
-            <div class="auditorium-card__person">Ivan Sutherland</div>
-            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-3</div>
-            <div class="auditorium-card__description">Компьютерный класс - 1</div>
-            <div class="auditorium-card__person">Jonathan Blow</div>
-            <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: практическая</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-5</div>
-            <div class="auditorium-card__description">Лекториум</div>
-            <div class="auditorium-card__person">Mikhail Pagosyan</div>
-            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лекториум</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-6</div>
-            <div class="auditorium-card__description">Лаборатория информационной безопасности</div>
-            <div class="auditorium-card__person">Blaise de Vigenere</div>
-            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-7</div>
-            <div class="auditorium-card__description">Видео студия</div>
-            <div class="auditorium-card__person">John Lasseter</div>
-            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-8</div>
-            <div class="auditorium-card__description">Лаборатория ИИ и моделирования</div>
-            <div class="auditorium-card__person">Alan Turing</div>
-            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-9</div>
-            <div class="auditorium-card__description">Лаборатория лямбда</div>
-            <div class="auditorium-card__person">NERV</div>
-            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-10</div>
-            <div class="auditorium-card__description">Переговорная</div>
-            <div class="auditorium-card__person">Carl Sagan</div>
-            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ?</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: ?</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-11</div>
-            <div class="auditorium-card__description">Центр олимпиадного программирования</div>
-            <div class="auditorium-card__person">Zzz</div>
-            <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: практическая</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-12</div>
-            <div class="auditorium-card__description">"IT-центр"</div>
-            <div class="auditorium-card__person"></div>
-            <span class="auditorium-card__status auditorium-card__status--free">Недоступна</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: ?</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-13</div>
-            <div class="auditorium-card__description">Начальник управления "IT-центр", к.т.н., доцент Мария Борисовна Булакина</div>
-            <div class="auditorium-card__person"></div>
-            <span class="auditorium-card__status auditorium-card__status--disabled">Недоступна</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: 35 человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: Лекционная</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: Проектор, доска</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-14</div>
-            <div class="auditorium-card__description">Заведующий кафедрой к.ф.-м.н., доцент Сергей Сергеевич Крылов</div>
-            <div class="auditorium-card__person"></div>
-            <span class="auditorium-card__status auditorium-card__status--disabled">Недоступна</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: ?</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-15</div>
-            <div class="auditorium-card__description">Компьютерный класс - 2</div>
-            <div class="auditorium-card__person">Ada Lovelace</div>
-            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: практическая</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-16</div>
-            <div class="auditorium-card__description">Сотрудники</div>
-            <div class="auditorium-card__person">Ulyan Pirumov</div>
-            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: ?</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-17</div>
-            <div class="auditorium-card__description">Компьютерный класс - 3</div>
-            <div class="auditorium-card__person">Niklaus Wirth</div>
-            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: 38 человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: практическая</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: 23 моноблока, маркерная доска, проектор, доска</div>
-          </div>
-          <div class="auditorium-card">
-            <div class="auditorium-card__title">it-18</div>
-            <div class="auditorium-card__description">НИО-806</div>
-            <div class="auditorium-card__person">Navier & Stokies</div>
-            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
-          </div>
-        </div>
+        <section class="auditorium-list">
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-0</h3>
+              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Пространство самоподготовки</span>
+              <span class="auditorium-card__person">Linus Torvalds</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 30 человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: столы, кресла, шкаф, маркерная доска</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-1</h3>
+              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">VR зона</span>
+              <span class="auditorium-card__person">John Carmack</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-2</h3>
+              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Лаборатория XR</span>
+              <span class="auditorium-card__person">Ivan Sutherland</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-3</h3>
+              <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Компьютерный класс - 1</span>
+              <span class="auditorium-card__person">Jonathan Blow</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-5</h3>
+              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Лекториум</span>
+              <span class="auditorium-card__person">Mikhail Pagosyan</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лекториум</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-6</h3>
+              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Лаборатория информационной безопасности</span>
+              <span class="auditorium-card__person">Blaise de Vigenere</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-7</h3>
+              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Видео студия</span>
+              <span class="auditorium-card__person">John Lasseter</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-8</h3>
+              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Лаборатория ИИ и моделирования</span>
+              <span class="auditorium-card__person">Alan Turing</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-9</h3>
+              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Лаборатория лямбда</span>
+              <span class="auditorium-card__person">NERV</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-10</h3>
+              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Переговорная</span>
+              <span class="auditorium-card__person">Carl Sagan</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-11</h3>
+              <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Центр олимпиадного программирования</span>
+              <span class="auditorium-card__person">Zzz</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-12</h3>
+              <span class="auditorium-card__status auditorium-card__status--free">Недоступна</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">"IT-центр"</span>
+              <span class="auditorium-card__person"></span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-13</h3>
+              <span class="auditorium-card__status auditorium-card__status--disabled">Недоступна</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Начальник управления "IT-центр", к.т.н., доцент Мария Борисовна Булакина</span>
+              <span class="auditorium-card__person"></span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 35 человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: Лекционная</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: Проектор, доска</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-14</h3>
+              <span class="auditorium-card__status auditorium-card__status--disabled">Недоступна</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Заведующий кафедрой к.ф.-м.н., доцент Сергей Сергеевич Крылов</span>
+              <span class="auditorium-card__person"></span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-15</h3>
+              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Компьютерный класс - 2</span>
+              <span class="auditorium-card__person">Ada Lovelace</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-16</h3>
+              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Сотрудники</span>
+              <span class="auditorium-card__person">Ulyan Pirumov</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-17</h3>
+              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Компьютерный класс - 3</span>
+              <span class="auditorium-card__person">Niklaus Wirth</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 38 человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: 23 моноблока, маркерная доска, проектор, доска</div>
+            </div>
+          </article>
+          <article class="auditorium-card">
+            <div class="auditorium-card__title">
+              <h3 class="auditorium-card__header">it-18</h3>
+              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            </div>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">НИО-806</span>
+              <span class="auditorium-card__person">Navier & Stokies</span>
+            </div>
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+            </div>
+          </article>
+        </section>
       </div>
     </main>
     <!-- Модальное окно входа -->

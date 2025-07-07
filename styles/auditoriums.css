@@ -1,0 +1,126 @@
+:root {
+  --auditorium-status-free-bg: #d1fae5;
+  --auditorium-status-free-color: #065f46;
+  --auditorium-status-part-bg: #fef3c7;
+  --auditorium-status-part-color: #92400e;
+  --auditorium-status-occupied-bg: #fee2e2;
+  --auditorium-status-occupied-color: #991b1b;
+  --auditorium-status-disabled-bg: #898787;
+  --auditorium-status-disabled-color: #ffffff;
+}
+
+.auditorium-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .auditorium-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .auditorium-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.auditorium-card {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  overflow: auto;
+  transition: all 0.3s;
+  cursor: pointer;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  height: 100%;
+}
+
+.auditorium-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.auditorium-card__title {
+  display: flex;
+  column-gap: 20px;
+  justify-content: space-between;
+}
+
+.auditorium-card__header {
+  display: inline-block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.auditorium-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auditorium-card__description {
+  display: flex;
+  flex-direction: column;
+  color: #6b7280;
+  font-size: 0.95rem;
+  min-height: 48px;
+}
+
+.auditorium-card__function {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.auditorium-card__person {
+  color: #6b7280;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.auditorium-card__status {
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.15rem 0.7rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+
+.auditorium-card__status--free {
+  background: var(--auditorium-status-free-bg);
+  color: var(--auditorium-status-free-color);
+}
+
+.auditorium-card__status--part {
+  background: var(--auditorium-status-part-bg);
+  color: var(--auditorium-status-part-color);
+}
+
+.auditorium-card__status--occupied {
+  background: var(--auditorium-status-occupied-bg);
+  color: var(--auditorium-status-occupied-color);
+}
+
+.auditorium-card__status--disabled {
+  background: var(--auditorium-status-disabled-bg);
+  color: var(--auditorium-status-disabled-color);
+}
+
+.auditorium-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.auditorium-card-info__container {
+  margin-top: 1rem;
+}
