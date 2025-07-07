@@ -6,6 +6,7 @@
     <title>Система бронирования аудиторий</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
     <script>
       tailwind.config = {
         theme: {
@@ -21,684 +22,319 @@
         }
       }
     </script>
-    <style>
-      .calendar-day {
-        transition: all 0.2s ease;
-      }
-
-      .calendar-day:hover:not(.disabled) {
-        transform: scale(1.05);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      }
-
-      .room-card {
-        transition: all 0.3s ease;
-      }
-
-      .room-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      }
-
-      .sidebar {
-        transition: all 0.3s ease;
-      }
-
-      @media (max-width: 768px) {
-        .sidebar {
-          transform: translateX(-100%);
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100vh;
-          z-index: 50;
-        }
-
-        .sidebar.open {
-          transform: translateX(0);
-        }
-      }
-    </style>
   </head>
 
   <body class="bg-gray-100 font-sans">
     <!-- Навигация -->
-    <nav class="bg-white shadow-md">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-          <div class="flex items-center">
-            <div class="flex-shrink-0 flex items-center">
-              <i class="fas fa-university text-primary text-2xl mr-2"></i>
-              <span class="text-xl font-bold text-dark">Аудиторный фонд</span>
-            </div>
-          </div>
-          <div class="hidden md:ml-6 md:flex md:items-center space-x-4">
-            <button id="registerBtn"
-              class="px-3 py-2 rounded-md text-sm font-medium text-dark hover:bg-gray-100">Регистрация</button>
-            <button id="loginBtn"
-              class="px-3 py-2 rounded-md text-sm font-medium text-white bg-primary hover:bg-secondary">Вход</button>
-          </div>
-          <div class="-mr-2 flex items-center md:hidden">
-            <button id="mobileMenuBtn"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
-              <i class="fas fa-bars"></i>
-            </button>
-          </div>
+    <nav class="nav">
+      <div class="nav__container">
+        <div class="nav__brand">
+          <i class="fas fa-university nav__icon"></i>
+          <span>Аудиторный фонд</span>
+        </div>
+        <div class="nav__links">
+          <button id="registerBtn" class="main-btn">Регистрация</button>
+          <button id="loginBtn" class="main-btn">Вход</button>
         </div>
       </div>
     </nav>
 
     <!-- Мобильное меню -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <button id="mobileRegisterBtn"
-          class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-gray-100 w-full text-left">Регистрация</button>
-        <button id="mobileLoginBtn"
-          class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary hover:bg-secondary w-full text-left">Вход</button>
+    <div id="mobileMenu" class="mobile-menu hidden">
+      <div class="p-4">
+        <button id="mobileRegisterBtn" class="btn w-full text-left">Регистрация</button>
+        <button id="mobileLoginBtn" class="btn btn-primary w-full text-left">Вход</button>
       </div>
     </div>
 
     <!-- Основной контент -->
-    <div class="flex">
-      <!-- Боковая панель (фильтры) -->
-      <div id="sidebar" class="sidebar bg-white w-64 p-4 shadow-md hidden md:block">
-        <h2 class="text-lg font-semibold mb-4 text-dark">Параметры поиска</h2>
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1">Корпус</label>
-          <select
-            class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-primary focus:border-primary rounded-md">
-            <option>Все корпуса</option>
-            <option>Главный корпус</option>
-            <option>Корпус А</option>
-            <option>Корпус Б</option>
-            <option>Корпус В</option>
-          </select>
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1">Вместимость</label>
-          <input type="range" min="10" max="100" value="30"
-            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-          <div class="flex justify-between text-xs text-gray-500">
-            <span>10</span>
-            <span>30</span>
-            <span>50</span>
-            <span>100</span>
+    <main class="main-container">
+      <!-- Фильтры -->
+      <section id="filtersPanel" class="filters-panel mb-6">
+        <h2 class="heading-section">Параметры поиска</h2>
+        <div class="filters-row">
+          <div class="filter-group">
+            <label class="filter-label">Корпус</label>
+            <select class="filter-select">
+              <option>Все корпуса</option>
+              <option>Главный корпус</option>
+              <option>Корпус А</option>
+              <option>Корпус Б</option>
+              <option>Корпус В</option>
+            </select>
           </div>
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1">Дата</label>
-          <input type="date"
-            class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-primary focus:border-primary rounded-md">
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1">Время</label>
-          <div class="grid grid-cols-2 gap-2">
-            <input type="time"
-              class="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-primary focus:border-primary rounded-md"
-              placeholder="С">
-            <input type="time"
-              class="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-primary focus:border-primary rounded-md"
-              placeholder="До">
-          </div>
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1">Тип аудитории</label>
-          <div class="space-y-2 mt-2">
-            <div class="flex items-center">
-              <input type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
-              <label class="ml-2 block text-sm text-gray-700">Лекционная</label>
-            </div>
-            <div class="flex items-center">
-              <input type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
-              <label class="ml-2 block text-sm text-gray-700">Практическая</label>
-            </div>
-            <div class="flex items-center">
-              <input type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
-              <label class="ml-2 block text-sm text-gray-700">Компьютерный класс</label>
-            </div>
-            <div class="flex items-center">
-              <input type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
-              <label class="ml-2 block text-sm text-gray-700">Лаборатория</label>
+          <div class="filter-group">
+            <label class="filter-label">Вместимость</label>
+            <input type="range" min="10" max="100" value="30" class="filter-input">
+            <div class="filters-capacity-labels">
+              <span>10</span>
+              <span>30</span>
+              <span>50</span>
+              <span>100</span>
             </div>
           </div>
+          <div class="filter-group">
+            <label class="filter-label">Дата</label>
+            <input type="date" class="filter-input">
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Время</label>
+            <div class="filters-time-row">
+              <input type="time" class="filter-input" placeholder="С">
+              <input type="time" class="filter-input" placeholder="До">
+            </div>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Тип аудитории</label>
+            <div class="filters-type-row">
+              <label><input type="checkbox" class="filter-input" style="width: auto;"> Лекционная</label>
+              <label><input type="checkbox" class="filter-input" style="width: auto;"> Практическая</label>
+              <label><input type="checkbox" class="filter-input" style="width: auto;"> Компьютерный класс</label>
+              <label><input type="checkbox" class="filter-input" style="width: auto;"> Лаборатория</label>
+            </div>
+          </div>
+          <div class="filter-group filter-group-btn">
+            <button class="btn btn-primary w-full">Применить фильтры</button>
+          </div>
         </div>
-
-        <button class="w-full bg-primary hover:bg-secondary text-white py-2 px-4 rounded-md transition duration-300">
-          Применить фильтры
-        </button>
-      </div>
+      </section>
 
       <!-- Основное содержимое -->
       <div class="flex-1 p-6">
         <div class="flex justify-between items-center mb-6">
-          <h1 class="text-2xl font-bold text-dark">Доступные аудитории</h1>
+          <h1 class="heading-main">Доступные аудитории</h1>
           <div class="flex space-x-2">
-            <button id="floorPlanBtn" class="bg-accent text-white p-2 rounded-md flex items-center hover:bg-primary transition">
-              <i class="fas fa-map-marked-alt mr-2"></i> План этажа
-            </button>
-            <button id="filterToggle" class="md:hidden bg-primary text-white p-2 rounded-md">
-              <i class="fas fa-filter"></i>
-            </button>
+            <button id="floorPlanBtn" class="btn btn-accent flex items-center"><i class="fas fa-map-marked-alt mr-2"></i> План этажа</button>
+            <button id="filterToggle" class="btn btn-primary md:hidden"><i class="fas fa-filter"></i></button>
           </div>
         </div>
 
         <!-- Календарь -->
-        <div class="bg-white rounded-lg shadow-md p-4 mb-6">
-          <div class="flex justify-between items-center mb-4">
-            <h2 class="text-lg font-semibold text-dark">Календарь бронирований</h2>
+        <div class="calendar mb-6">
+          <div class="calendar-header">
+            <h2 class="heading-section">Календарь бронирований</h2>
             <div class="flex space-x-2">
-              <button class="p-2 rounded-md hover:bg-gray-100">
-                <i class="fas fa-chevron-left"></i>
-              </button>
+              <button class="btn"><i class="fas fa-chevron-left"></i></button>
               <span class="font-medium">Июнь 2023</span>
-              <button class="p-2 rounded-md hover:bg-gray-100">
-                <i class="fas fa-chevron-right"></i>
-              </button>
+              <button class="btn"><i class="fas fa-chevron-right"></i></button>
             </div>
           </div>
-
-          <div class="grid grid-cols-7 gap-1 mb-2">
-            <div class="text-center font-medium text-sm py-1">Пн</div>
-            <div class="text-center font-medium text-sm py-1">Вт</div>
-            <div class="text-center font-medium text-sm py-1">Ср</div>
-            <div class="text-center font-medium text-sm py-1">Чт</div>
-            <div class="text-center font-medium text-sm py-1">Пт</div>
-            <div class="text-center font-medium text-sm py-1 text-primary">Сб</div>
-            <div class="text-center font-medium text-sm py-1 text-primary">Вс</div>
+          <div class="calendar-weekdays mb-2">
+            <div class="calendar-weekday">Пн</div>
+            <div class="calendar-weekday">Вт</div>
+            <div class="calendar-weekday">Ср</div>
+            <div class="calendar-weekday">Чт</div>
+            <div class="calendar-weekday">Пт</div>
+            <div class="calendar-weekday">Сб</div>
+            <div class="calendar-weekday">Вс</div>
           </div>
-
-          <div class="grid grid-cols-7 gap-1">
-            <div class="calendar-day text-center py-2 text-gray-400">29</div>
-            <div class="calendar-day text-center py-2 text-gray-400">30</div>
-            <div class="calendar-day text-center py-2 text-gray-400">31</div>
-            <div class="calendar-day text-center py-2">1</div>
-            <div class="calendar-day text-center py-2">2</div>
-            <div class="calendar-day text-center py-2 text-primary">3</div>
-            <div class="calendar-day text-center py-2 text-primary">4</div>
-
-            <div class="calendar-day text-center py-2">5</div>
-            <div class="calendar-day text-center py-2">6</div>
-            <div class="calendar-day text-center py-2">7</div>
-            <div class="calendar-day text-center py-2">8</div>
-            <div class="calendar-day text-center py-2">9</div>
-            <div class="calendar-day text-center py-2 text-primary">10</div>
-            <div class="calendar-day text-center py-2 text-primary">11</div>
-
-            <div class="calendar-day text-center py-2">12</div>
-            <div class="calendar-day text-center py-2 bg-primary text-white rounded-full">13</div>
-            <div class="calendar-day text-center py-2">14</div>
-            <div class="calendar-day text-center py-2">15</div>
-            <div class="calendar-day text-center py-2">16</div>
-            <div class="calendar-day text-center py-2 text-primary">17</div>
-            <div class="calendar-day text-center py-2 text-primary">18</div>
-
-            <div class="calendar-day text-center py-2">19</div>
-            <div class="calendar-day text-center py-2">20</div>
-            <div class="calendar-day text-center py-2">21</div>
-            <div class="calendar-day text-center py-2">22</div>
-            <div class="calendar-day text-center py-2">23</div>
-            <div class="calendar-day text-center py-2 text-primary">24</div>
-            <div class="calendar-day text-center py-2 text-primary">25</div>
-
-            <div class="calendar-day text-center py-2">26</div>
-            <div class="calendar-day text-center py-2">27</div>
-            <div class="calendar-day text-center py-2">28</div>
-            <div class="calendar-day text-center py-2">29</div>
-            <div class="calendar-day text-center py-2">30</div>
-            <div class="calendar-day text-center py-2 text-primary">1</div>
-            <div class="calendar-day text-center py-2 text-primary">2</div>
+          <div class="calendar-days">
+            <div class="calendar-day disabled">29</div>
+            <div class="calendar-day disabled">30</div>
+            <div class="calendar-day disabled">31</div>
+            <div class="calendar-day">1</div>
+            <div class="calendar-day">2</div>
+            <div class="calendar-day">3</div>
+            <div class="calendar-day">4</div>
+            <div class="calendar-day">5</div>
+            <div class="calendar-day">6</div>
+            <div class="calendar-day">7</div>
+            <div class="calendar-day">8</div>
+            <div class="calendar-day">9</div>
+            <div class="calendar-day">10</div>
+            <div class="calendar-day">11</div>
+            <div class="calendar-day">12</div>
+            <div class="calendar-day selected">13</div>
+            <div class="calendar-day">14</div>
+            <div class="calendar-day">15</div>
+            <div class="calendar-day">16</div>
+            <div class="calendar-day">17</div>
+            <div class="calendar-day">18</div>
+            <div class="calendar-day">19</div>
+            <div class="calendar-day">20</div>
+            <div class="calendar-day">21</div>
+            <div class="calendar-day">22</div>
+            <div class="calendar-day">23</div>
+            <div class="calendar-day">24</div>
+            <div class="calendar-day">25</div>
+            <div class="calendar-day">26</div>
+            <div class="calendar-day">27</div>
+            <div class="calendar-day">28</div>
+            <div class="calendar-day">29</div>
+            <div class="calendar-day">30</div>
+            <div class="calendar-day">1</div>
+            <div class="calendar-day">2</div>
           </div>
         </div>
 
-        <!-- Список аудиторий -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <!-- Аудитории it-1 ... it-19 -->
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-1</h3>
-                  <p class="text-gray-500 text-sm">VR зона</p>
-                </div>
-                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 20 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Лекционная</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Проектор, доска</span>
-              </div>
-            </div>
+        <!-- Каталог аудиторий -->
+        <div class="auditorium-list">
+          <!-- Карточки аудитории -->
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-0</div>
+            <div class="auditorium-card__description">Пространство самоподготовки</div>
+            <div class="auditorium-card__person">Linus Torvalds</div>
+            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: 30 человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: практическая</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: столы, кресла, шкаф, маркерная доска</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-2</h3>
-                  <p class="text-gray-500 text-sm">Лаборатория XR</p>
-                </div>
-                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 25 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Практическая</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Интерактивная доска</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-1</div>
+            <div class="auditorium-card__description">VR зона</div>
+            <div class="auditorium-card__person">John Carmack</div>
+            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-3</h3>
-                  <p class="text-gray-500 text-sm">Компьютерный класс - 1</p>
-                </div>
-                <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Занята</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 15 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Компьютерный класс</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: 15 ПК, проектор</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-2</div>
+            <div class="auditorium-card__description">Лаборатория XR</div>
+            <div class="auditorium-card__person">Ivan Sutherland</div>
+            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-4</h3>
-                  <p class="text-gray-500 text-sm">Серверная 1</p>
-                </div>
-                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 12 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Лаборатория</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Лабораторные столы</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-3</div>
+            <div class="auditorium-card__description">Компьютерный класс - 1</div>
+            <div class="auditorium-card__person">Jonathan Blow</div>
+            <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: практическая</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-5</h3>
-                  <p class="text-gray-500 text-sm">Лекториум</p>
-                </div>
-                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 50 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Лекционная</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Проектор, микрофон</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-5</div>
+            <div class="auditorium-card__description">Лекториум</div>
+            <div class="auditorium-card__person">Mikhail Pagosyan</div>
+            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лекториум</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-6</h3>
-                  <p class="text-gray-500 text-sm">Лаборатория информационной безопасности</p>
-                </div>
-                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 25 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Практическая</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Доска</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-6</div>
+            <div class="auditorium-card__description">Лаборатория информационной безопасности</div>
+            <div class="auditorium-card__person">Blaise de Vigenere</div>
+            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <!-- it-7 ... it-19 -->
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-7</h3>
-                  <p class="text-gray-500 text-sm">Видео студия</p>
-                </div>
-                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 18 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Компьютерный класс</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: 18 ПК, проектор</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-7</div>
+            <div class="auditorium-card__description">Видео студия</div>
+            <div class="auditorium-card__person">John Lasseter</div>
+            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-8</h3>
-                  <p class="text-gray-500 text-sm">Лаборатория ИИ и моделирования</p>
-                </div>
-                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 22 человека</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Лаборатория</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Лабораторные столы, проектор</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-8</div>
+            <div class="auditorium-card__description">Лаборатория ИИ и моделирования</div>
+            <div class="auditorium-card__person">Alan Turing</div>
+            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-9</h3>
-                  <p class="text-gray-500 text-sm">Лаборатория лямбда</p>
-                </div>
-                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 40 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Лекционная</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Проектор, доска</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-9</div>
+            <div class="auditorium-card__description">Лаборатория лямбда</div>
+            <div class="auditorium-card__person">NERV</div>
+            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-10</h3>
-                  <p class="text-gray-500 text-sm">Переговорная</p>
-                </div>
-                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 30 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Практическая</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Интерактивная доска</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-10</div>
+            <div class="auditorium-card__description">Переговорная</div>
+            <div class="auditorium-card__person">Carl Sagan</div>
+            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ?</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: ?</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-11</h3>
-                  <p class="text-gray-500 text-sm">Центр олимпиадного программирования</p>
-                </div>
-                <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Занята</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 16 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Компьютерный класс</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: 16 ПК, проектор</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-11</div>
+            <div class="auditorium-card__description">Центр олимпиадного программирования</div>
+            <div class="auditorium-card__person">Zzz</div>
+            <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: практическая</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-12</h3>
-                  <p class="text-gray-500 text-sm">"IT-центр"</p>
-                </div>
-                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 14 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Лаборатория</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Лабораторные столы</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-12</div>
+            <div class="auditorium-card__description">"IT-центр"</div>
+            <div class="auditorium-card__person"></div>
+            <span class="auditorium-card__status auditorium-card__status--free">Недоступна</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: ?</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-13</h3>
-                  <p class="text-gray-500 text-sm">Начальник управления "IT-центр", к.т.н., доцент Мария Борисовна Булакина</p>
-                </div>
-                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 35 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Лекционная</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Проектор, доска</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-13</div>
+            <div class="auditorium-card__description">Начальник управления "IT-центр", к.т.н., доцент Мария Борисовна Булакина</div>
+            <div class="auditorium-card__person"></div>
+            <span class="auditorium-card__status auditorium-card__status--disabled">Недоступна</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: 35 человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: Лекционная</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: Проектор, доска</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-14</h3>
-                  <p class="text-gray-500 text-sm">Заведующий кафедрой к.ф.-м.н., доцент Сергей Сергеевич Крылов</p>
-                </div>
-                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 28 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Практическая</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Интерактивная доска</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-14</div>
+            <div class="auditorium-card__description">Заведующий кафедрой к.ф.-м.н., доцент Сергей Сергеевич Крылов</div>
+            <div class="auditorium-card__person"></div>
+            <span class="auditorium-card__status auditorium-card__status--disabled">Недоступна</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: ?</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-15</h3>
-                  <p class="text-gray-500 text-sm">Компьютерный класс - 2</p>
-                </div>
-                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 19 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Компьютерный класс</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: 19 ПК, проектор</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-15</div>
+            <div class="auditorium-card__description">Компьютерный класс - 2</div>
+            <div class="auditorium-card__person">Ada Lovelace</div>
+            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: практическая</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-16</h3>
-                  <p class="text-gray-500 text-sm">Сотрудники</p>
-                </div>
-                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 21 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Лаборатория</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Лабораторные столы, проектор</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-16</div>
+            <div class="auditorium-card__description">Сотрудники</div>
+            <div class="auditorium-card__person">Ulyan Pirumov</div>
+            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: ?</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-17</h3>
-                  <p class="text-gray-500 text-sm">Компьютерный класс - 3</p>
-                </div>
-                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 38 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Лекционная</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Проектор, доска</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-17</div>
+            <div class="auditorium-card__description">Компьютерный класс - 3</div>
+            <div class="auditorium-card__person">Niklaus Wirth</div>
+            <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: 38 человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: практическая</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: 23 моноблока, маркерная доска, проектор, доска</div>
           </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-18</h3>
-                  <p class="text-gray-500 text-sm">НИО-806</p>
-                </div>
-                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Частично занята</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 27 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Практическая</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: Интерактивная доска</span>
-              </div>
-            </div>
-          </div>
-          <div class="room-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-            <div class="p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-lg font-semibold text-dark">it-19</h3>
-                  <p class="text-gray-500 text-sm">Серверная 2</p>
-                </div>
-                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Свободна</span>
-              </div>
-              <div class="mt-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-users mr-2"></i>
-                <span>Вместимость: 17 человек</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-door-open mr-2"></i>
-                <span>Тип: Компьютерный класс</span>
-              </div>
-              <div class="mt-2 flex items-center text-sm text-gray-600">
-                <i class="fas fa-tv mr-2"></i>
-                <span>Оборудование: 17 ПК, проектор</span>
-              </div>
-            </div>
+          <div class="auditorium-card">
+            <div class="auditorium-card__title">it-18</div>
+            <div class="auditorium-card__description">НИО-806</div>
+            <div class="auditorium-card__person">Navier & Stokies</div>
+            <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+            <div class="auditorium-card__info"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+            <div class="auditorium-card__info"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+            <div class="auditorium-card__info"><i class="fas fa-tv"></i> Оборудование: ?</div>
           </div>
         </div>
       </div>
-    </div>
-
+    </main>
     <!-- Модальное окно входа -->
     <div id="loginModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden z-50">
       <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
@@ -1083,7 +719,7 @@
         });
 
         // Модальное окно бронирования
-        const roomCards = document.querySelectorAll('.room-card');
+        const roomCards = document.querySelectorAll('.auditorium-card');
         const bookingModal = document.getElementById('bookingModal');
         const closeBookingModal = document.getElementById('closeBookingModal');
         const cancelBooking = document.getElementById('cancelBooking');
