@@ -1,20 +1,17 @@
 .nav {
   background: var(--color-white);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-  height: 64px;
+  padding: 1.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
   display: flex;
   align-items: center;
 }
   
 .nav__container {
-  max-width: 1280px;
-  margin: 0 auto;
+  padding-inline: 8rem;
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
-  height: 64px;
 }
 
 .nav__header {
@@ -40,9 +37,11 @@
   z-index: 40;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
+
 .nav__mobile-menu-content {
   padding: 1rem;
 }
+
 .nav__mobile-menu-button {
   margin-bottom: 0.5rem;
 }

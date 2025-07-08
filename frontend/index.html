@@ -2,8 +2,13 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бронирование аудиторий на IT-этаже</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Бронирование аудиторий на IT-этаже МАИ">
+    <meta name="keywords" content="МАИ, бронирование, аудитории, IT-этаж, лекториум, лаборатория, переговорная">
+    <meta name="author" content="iannsgirdye">
+    <meta name="theme-color" content="#ffffff">
+    <title>Бронирование аудиторий на IT-этаже МАИ</title>
+    <link rel="icon" href="./icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/normalize.css">
@@ -11,21 +16,26 @@
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/filters.css">
     <link rel="stylesheet" href="./styles/auditoriums.css">
+    <link rel="stylesheet" href="./styles/footer.css">
     <script src="main.js"></script>
   </head>
-
   <body>
     <header class="nav">
       <nav class="nav__container">
-        <h1 class="nav__header"><a href="/">Бронирование аудиторий на IT-этаже</a></h1>
+        <h1 class="nav__header"><a href="/" class="link link--header">Бронирование аудиторий на IT-этаже МАИ</a></h1>
         <div class="nav__buttons">
           <button id="button-login" class="nav__button button">Авторизация</button>
           <button id="button-map" class="nav__button button button--secondary">Карта этажа</button>
         </div>
         <div id="mobileMenu" class="nav__mobile-menu" hidden>
           <div class="nav__mobile-menu-content">
-            <button id="mobileRegisterBtn" class="button button--full nav__mobile-menu-button">Регистрация</button>
-            <button id="mobileLoginBtn" class="button button--primary button--full nav__mobile-menu-button">Вход</button>
+            <button
+              id="mobileRegisterBtn"
+              class="button button--full nav__mobile-menu-button">Регистрация</button>
+            <button
+              id="mobileLoginBtn"
+              class="button button--primary button--full nav__mobile-menu-button"
+            >Вход</button>
           </div>
         </div>
       </nav>
@@ -403,7 +413,17 @@
         </div>
       </section>
     </main>
-    
+    <footer class="footer">
+      <div class="footer__content">
+        <p class="footer__text">
+          &copy; 2025 <a href="https://github.com/iannsgirdye" class="link">iannsgirdye</a>
+        </p>
+        <p class="footer__text">
+          Сервис разработан за 4 дня в рамках ознакомительной практики в МАИ.
+        </p>
+      </div>
+    </footer>
+
     <!-- Модальное окно авторизации -->
     <div id="authModal" class="modal modal--auth hidden">
       <div class="modal__content modal__content--auth">
