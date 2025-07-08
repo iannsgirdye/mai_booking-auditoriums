@@ -1,0 +1,277 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(75, 85, 99, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal.hidden {
+  display: none !important;
+}
+
+.modal__content {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-width: 32rem;
+  width: 100%;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.modal__close {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal__close:hover {
+  color: #374151;
+}
+
+.modal__tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.modal__tab {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  padding: 8px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  color: #888;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.modal__tab--active {
+  color: #222;
+  border-bottom: 2px solid #007bff;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal__block {
+  margin-bottom: 1rem;
+}
+
+.modal__block--row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.modal__block--col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.modal__block--end {
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.modal__checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal__checkbox {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--button-background-color);
+}
+
+.modal__checkbox-label {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-left: 0.5rem;
+}
+
+.modal__link {
+  color: var(--button-background-color);
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal__link:hover {
+  color: var(--button-hover-background-color);
+}
+
+.modal__link--switch {
+  font-weight: 500;
+}
+
+.modal__footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.modal__footer-info {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.modal__footer-info--bold {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.modal__pagination {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.modal__pagination-btn {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.375rem;
+  background: #fff;
+  color: #1f2937;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal__pagination-btn--active {
+  background: var(--button-background-color);
+  color: #fff;
+  border-color: var(--button-background-color);
+}
+
+.modal__pagination-btn--prev,
+.modal__pagination-btn--next {
+  font-size: 1rem;
+}
+
+.modal__table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.modal__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.modal__table-th,
+.modal__table-td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal__table-th {
+  background: #f9fafb;
+  color: #6b7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.modal__status {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.modal__status--pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.modal__status--approved {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.modal__status--declined {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.modal__action {
+  background: none;
+  border: none;
+  color: #1f2937;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: color 0.2s;
+}
+
+.modal__action--approve {
+  color: #059669;
+}
+
+.modal__action--decline {
+  color: #dc2626;
+}
+
+.modal__action--edit {
+  color: #374151;
+}
+
+.modal__action--cancel {
+  color: #dc2626;
+}
+
+.modal__action--view {
+  color: #374151;
+}
+
+.modal__body--floorplan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.modal__body-placeholder {
+  color: #9ca3af;
+}
+
+@media (max-width: 600px) {
+  .modal__content {
+    padding: 16px 6px;
+    min-width: 0;
+    width: 98vw;
+  }
+}

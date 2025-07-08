@@ -139,24 +139,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Закрытие модальных окон при клике вне их
-  window.addEventListener('click', function (e) {
-    if (loginModal && e.target === loginModal) {
-      loginModal.classList.add('hidden');
-    }
-    if (registerModal && e.target === registerModal) {
-      registerModal.classList.add('hidden');
-    }
-    if (bookingModal && e.target === bookingModal) {
-      bookingModal.classList.add('hidden');
-    }
-    if (adminModal && e.target === adminModal) {
-      adminModal.classList.add('hidden');
-    }
-  });
-
   // Модальное окно плана этажа
   const floorPlanBtn = document.getElementById('floorPlanBtn');
+  const headerMapBtn = document.getElementById('button-map');
   const floorPlanModal = document.getElementById('floorPlanModal');
   const closeFloorPlanModal = document.getElementById('closeFloorPlanModal');
 
@@ -175,4 +160,144 @@ document.addEventListener('DOMContentLoaded', function () {
       floorPlanModal.classList.add('hidden');
     }
   });
+
+  // Блокировка скролла при открытии модального окна и возврат при закрытии всех
+  function openModal(modal) {
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  function closeModal(modal) {
+    if (modal) {
+      modal.classList.add('hidden');
+      // Проверяем, есть ли еще открытые модальные окна
+      const anyOpen = [loginModal, registerModal, bookingModal, adminModal, floorPlanModal].some(m => m && !m.classList.contains('hidden'));
+      if (!anyOpen) {
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  // --- Новый код для единого модального окна ---
+  const authModal = document.getElementById('authModal');
+  const closeAuthModal = document.getElementById('closeAuthModal');
+  const authTabLogin = document.getElementById('authTabLogin');
+  const authTabRegister = document.getElementById('authTabRegister');
+  const authLoginForm = document.getElementById('authLoginForm');
+  const authRegisterForm = document.getElementById('authRegisterForm');
+
+  function setAuthTab(tab) {
+    if (tab === 'login') {
+      authTabLogin.classList.add('modal__tab--active');
+      authTabRegister.classList.remove('modal__tab--active');
+      authLoginForm.classList.remove('hidden');
+      authRegisterForm.classList.add('hidden');
+    } else {
+      authTabLogin.classList.remove('modal__tab--active');
+      authTabRegister.classList.add('modal__tab--active');
+      authLoginForm.classList.add('hidden');
+      authRegisterForm.classList.remove('hidden');
+    }
+  }
+
+  if (authTabLogin && authTabRegister) {
+    authTabLogin.addEventListener('click', function() { setAuthTab('login'); });
+    authTabRegister.addEventListener('click', function() { setAuthTab('register'); });
+  }
+
+  function openAuthModal(tab) {
+    if (authModal) {
+      openModal(authModal);
+      setAuthTab(tab);
+    }
+  }
+  if (loginBtn) loginBtn.addEventListener('click', function() { openAuthModal('login'); });
+  if (mobileLoginBtn) mobileLoginBtn.addEventListener('click', function() { openAuthModal('login'); });
+  if (registerBtn) registerBtn.addEventListener('click', function() { openAuthModal('register'); });
+  if (mobileRegisterBtn) mobileRegisterBtn.addEventListener('click', function() { openAuthModal('register'); });
+  if (closeAuthModal && authModal) {
+    closeAuthModal.addEventListener('click', function () {
+      closeModal(authModal);
+    });
+  }
+
+  // --- Конец нового кода ---
+
+  // --- Старые обработчики для loginModal и registerModal (можно удалить позже) ---
+  /*
+  if (loginBtn) loginBtn.addEventListener('click', function() { openModal(loginModal); closeModal(registerModal); });
+  if (mobileLoginBtn) mobileLoginBtn.addEventListener('click', function() { openModal(loginModal); closeModal(registerModal); });
+  if (registerBtn) registerBtn.addEventListener('click', function() { openModal(registerModal); closeModal(loginModal); });
+  if (mobileRegisterBtn) mobileRegisterBtn.addEventListener('click', function() { openModal(registerModal); closeModal(loginModal); });
+
+  if (closeLoginModal && loginModal) {
+    closeLoginModal.addEventListener('click', function () {
+      closeModal(loginModal);
+    });
+  }
+  if (closeRegisterModal && registerModal) {
+    closeRegisterModal.addEventListener('click', function () {
+      closeModal(registerModal);
+    });
+  }
+  if (switchToRegister && loginModal && registerModal) {
+    switchToRegister.addEventListener('click', function () {
+      closeModal(loginModal);
+      openModal(registerModal);
+    });
+  }
+  if (switchToLogin && registerModal && loginModal) {
+    switchToLogin.addEventListener('click', function () {
+      closeModal(registerModal);
+      openModal(loginModal);
+    });
+  }
+  */
+
+  if (roomCards && bookingModal) {
+    roomCards.forEach(card => {
+      card.addEventListener('click', function () {
+        if (card.querySelector('.cursor-not-allowed')) return;
+        openModal(bookingModal);
+      });
+    });
+  }
+  if (closeBookingModal && bookingModal) {
+    closeBookingModal.addEventListener('click', function () {
+      closeModal(bookingModal);
+    });
+  }
+  if (cancelBooking && bookingModal) {
+    cancelBooking.addEventListener('click', function () {
+      closeModal(bookingModal);
+    });
+  }
+
+  document.querySelectorAll('#button-login, #mobileLoginBtn').forEach(btn => {
+    btn.addEventListener('dblclick', function () {
+      openModal(adminModal);
+    });
+  });
+  if (closeAdminModal && adminModal) {
+    closeAdminModal.addEventListener('click', function () {
+      closeModal(adminModal);
+    });
+  }
+
+  if (floorPlanBtn && floorPlanModal) {
+    floorPlanBtn.addEventListener('click', function () {
+      openModal(floorPlanModal);
+    });
+  }
+  if (headerMapBtn && floorPlanModal) {
+    headerMapBtn.addEventListener('click', function () {
+      openModal(floorPlanModal);
+    });
+  }
+  if (closeFloorPlanModal && floorPlanModal) {
+    closeFloorPlanModal.addEventListener('click', function () {
+      closeModal(floorPlanModal);
+    });
+  }
 }); 

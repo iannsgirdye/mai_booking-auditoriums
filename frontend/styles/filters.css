@@ -1,6 +1,6 @@
 .filters__content {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
   align-items: flex-end;
   margin-bottom: 1.5rem;
@@ -20,6 +20,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  width: 100%;
+}
+
+.filter__input-group > input {
+  flex-grow: 1;
 }
 
 .filters__buttons {

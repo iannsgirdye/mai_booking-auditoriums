@@ -7,6 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/filters.css">
     <link rel="stylesheet" href="./styles/auditoriums.css">
     <script src="main.js"></script>
@@ -14,30 +16,22 @@
 
   <body>
     <header class="nav">
-      <div class="nav__container">
-        <div class="nav__brand">
-          <i class="fas fa-university nav__icon"></i>
-          <span>Бронирование аудиторий на IT-этаже</span>
+      <nav class="nav__container">
+        <h1 class="nav__header"><a href="/">Бронирование аудиторий на IT-этаже</a></h1>
+        <div class="nav__buttons">
+          <button id="button-login" class="nav__button button">Авторизация</button>
+          <button id="button-map" class="nav__button button button--secondary">Карта этажа</button>
         </div>
-        <div class="nav__links">
-          <button id="button-login" class="button">Вход</button>
-          <button id="button-register" class="button button--secondary">Регистрация</button>
+        <div id="mobileMenu" class="nav__mobile-menu hidden">
+          <div class="nav__mobile-menu-content">
+            <button id="mobileRegisterBtn" class="button button--full nav__mobile-menu-button">Регистрация</button>
+            <button id="mobileLoginBtn" class="button button--primary button--full nav__mobile-menu-button">Вход</button>
+          </div>
         </div>
-      </div>
+      </nav>
     </header>
-
-    <!-- Мобильное меню -->
-    <div id="mobileMenu" class="nav__mobile-menu hidden">
-      <div class="nav__mobile-menu-content">
-        <button id="mobileRegisterBtn" class="button button--full nav__mobile-menu-button">Регистрация</button>
-        <button id="mobileLoginBtn" class="button button--primary button--full nav__mobile-menu-button">Вход</button>
-      </div>
-    </div>
-
-    <!-- Основной контент -->
     <main class="main">
-      <!-- Фильтры -->
-      <section class="section">
+      <section>
         <h2 class="section__header">Фильтры</h2>
         <div class="section__content">
           <form class="filters">
@@ -72,19 +66,27 @@
                 </div>
               </div>
               <div class="filter">
-                <label class="filter__label label" for="filter-start">Начало периода бронирования</label>
+                <label class="filter__label label" for="filter-date">Дата</label>
                 <input
                   class="filter__input input"
-                  id="filter-start"
-                  type="datetime-local"
+                  id="filter-date"
+                  type="date"
                 >
               </div>
               <div class="filter">
-                <label class="filter__label label" for="filter-end">Конец периода бронирования</label>
+                <label class="filter__label label" for="filter-time-start">Время начала</label>
                 <input
                   class="filter__input input"
-                  id="filter-end"
-                  type="datetime-local"
+                  id="filter-time-start"
+                  type="time"
+                >
+              </div>
+              <div class="filter">
+                <label class="filter__label label" for="filter-time-end">Время окончания</label>
+                <input
+                  class="filter__input input"
+                  id="filter-time-end"
+                  type="time"
                 >
               </div>
               <div class="filter filter--things">
@@ -124,9 +126,7 @@
           </form>
         </div>
       </section>
-
-      <!-- Каталог аудиторий -->
-      <section class="section">
+      <section>
         <h2 class="section__header">Каталог</h2> 
         <div class="auditoriums-list">
           <article class="auditorium-card">
@@ -357,120 +357,73 @@
         </div>
       </section>
     </main>
-    <!-- Модальное окно входа -->
-    <div id="loginModal" class="modal modal--login hidden">
-      <div class="modal__content modal__content--login">
+    
+    <!-- Модальное окно авторизации -->
+    <div id="authModal" class="modal modal--auth hidden">
+      <div class="modal__content modal__content--auth">
         <div class="modal__header">
-          <h3 class="modal__title">Вход в систему</h3>
-          <button id="closeLoginModal" class="modal__close">
+          <div class="modal__tabs">
+            <button id="authTabLogin" class="modal__tab modal__tab--active button">Вход</button>
+            <button id="authTabRegister" class="modal__tab button">Регистрация</button>
+          </div>
+          <button id="closeAuthModal" class="modal__close">
             <i class="fas fa-times"></i>
           </button>
         </div>
-
-        <form class="modal__form">
-          <div class="modal__block">
-            <label class="modal__label" for="loginEmail">Email</label>
-            <input id="loginEmail" type="email"
-              class="modal__input modal__input--full"
-              placeholder="Введите ваш email">
-          </div>
-
-          <div class="modal__block">
-            <label class="modal__label" for="loginPassword">Пароль</label>
-            <input id="loginPassword" type="password"
-              class="modal__input modal__input--full"
-              placeholder="Введите пароль">
-          </div>
-
-          <div class="modal__block modal__block--row">
-            <div class="modal__checkbox-group">
-              <input id="rememberMe" type="checkbox"
-                class="modal__checkbox">
-              <label for="rememberMe" class="modal__checkbox-label">Запомнить меня</label>
+        <div class="modal__body">
+          <!-- Вход -->
+          <form id="authLoginForm" class="modal__form">
+            <div class="modal__block">
+              <label class="modal__label label" for="authLoginEmail">Email</label>
+              <input id="authLoginEmail" type="email" class="modal__input input modal__input--full input--full" placeholder="Введите ваш email">
             </div>
-
-            <a href="#" class="modal__link">Забыли пароль?</a>
-          </div>
-
-          <button type="submit"
-            class="modal__button modal__button--submit">
-            Войти
-          </button>
-        </form>
-
-        <div class="modal__footer">
-          Нет аккаунта? <button id="switchToRegister"
-            class="modal__link modal__link--switch">Зарегистрироваться</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Модальное окно регистрации -->
-    <div id="registerModal" class="modal modal--register hidden">
-      <div class="modal__content modal__content--register">
-        <div class="modal__header">
-          <h3 class="modal__title">Регистрация</h3>
-          <button id="closeRegisterModal" class="modal__close">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-
-        <form class="modal__form">
-          <div class="modal__block">
-            <label class="modal__label" for="registerName">ФИО</label>
-            <input id="registerName" type="text"
-              class="modal__input modal__input--full"
-              placeholder="Введите ваше полное имя">
-          </div>
-
-          <div class="modal__block">
-            <label class="modal__label" for="registerEmail">Email</label>
-            <input id="registerEmail" type="email"
-              class="modal__input modal__input--full"
-              placeholder="Введите ваш email">
-          </div>
-
-          <div class="modal__block">
-            <label class="modal__label" for="registerPassword">Пароль</label>
-            <input id="registerPassword" type="password"
-              class="modal__input modal__input--full"
-              placeholder="Придумайте пароль">
-          </div>
-
-          <div class="modal__block">
-            <label class="modal__label" for="registerConfirmPassword">Подтвердите пароль</label>
-            <input id="registerConfirmPassword" type="password"
-              class="modal__input modal__input--full"
-              placeholder="Повторите пароль">
-          </div>
-
-          <div class="modal__block">
-            <label class="modal__label" for="registerRole">Роль</label>
-            <select id="registerRole"
-              class="modal__input modal__input--full">
-              <option value="student">Студент</option>
-              <option value="teacher">Преподаватель</option>
-              <option value="admin">Администратор</option>
-            </select>
-          </div>
-
-          <div class="modal__block modal__block--row">
-            <div class="modal__checkbox-group">
-              <input id="agreeTerms" type="checkbox"
-                class="modal__checkbox">
-              <label for="agreeTerms" class="modal__checkbox-label">Я согласен с <a href="#"
-                  class="modal__link">условиями использования</a></label>
+            <div class="modal__block">
+              <label class="modal__label label" for="authLoginPassword">Пароль</label>
+              <input id="authLoginPassword" type="password" class="modal__input input modal__input--full input--full" placeholder="Введите пароль">
             </div>
-          </div>
-
-          <button type="submit"
-            class="modal__button modal__button--submit">
-            Зарегистрироваться
-          </button>
-        </form>
-
-        <div class="modal__footer">
-          Уже есть аккаунт? <button id="switchToLogin" class="modal__link modal__link--switch">Войти</button>
+            <div class="modal__block modal__block--row">
+              <div class="modal__checkbox-group">
+                <input id="authRememberMe" type="checkbox" class="modal__checkbox">
+                <label for="authRememberMe" class="modal__checkbox-label">Запомнить меня</label>
+              </div>
+              <a href="#" class="modal__link">Забыли пароль?</a>
+            </div>
+            <button type="submit" class="modal__button button">Войти</button>
+          </form>
+          <!-- Регистрация -->
+          <form id="authRegisterForm" class="modal__form hidden">
+            <div class="modal__block">
+              <label class="modal__label label" for="authRegisterName">ФИО</label>
+              <input id="authRegisterName" type="text" class="modal__input input modal__input--full input--full" placeholder="Введите ваше полное имя">
+            </div>
+            <div class="modal__block">
+              <label class="modal__label label" for="authRegisterEmail">Email</label>
+              <input id="authRegisterEmail" type="email" class="modal__input input modal__input--full input--full" placeholder="Введите ваш email">
+            </div>
+            <div class="modal__block">
+              <label class="modal__label label" for="authRegisterPassword">Пароль</label>
+              <input id="authRegisterPassword" type="password" class="modal__input input modal__input--full input--full" placeholder="Придумайте пароль">
+            </div>
+            <div class="modal__block">
+              <label class="modal__label label" for="authRegisterConfirmPassword">Подтвердите пароль</label>
+              <input id="authRegisterConfirmPassword" type="password" class="modal__input input modal__input--full input--full" placeholder="Повторите пароль">
+            </div>
+            <div class="modal__block">
+              <label class="modal__label label" for="authRegisterRole">Роль</label>
+              <select id="authRegisterRole" class="modal__input input modal__input--full input--full">
+                <option value="student">Студент</option>
+                <option value="teacher">Преподаватель</option>
+                <option value="admin">Администратор</option>
+              </select>
+            </div>
+            <div class="modal__block modal__block--row">
+              <div class="modal__checkbox-group">
+                <input id="authAgreeTerms" type="checkbox" class="modal__checkbox">
+                <label for="authAgreeTerms" class="modal__checkbox-label">Я согласен с <a href="#" class="modal__link">условиями использования</a></label>
+              </div>
+            </div>
+            <button type="submit" class="modal__button button">Зарегистрироваться</button>
+          </form>
         </div>
       </div>
     </div>
@@ -487,33 +440,33 @@
 
         <form class="modal__form">
           <div class="modal__block">
-            <label class="modal__label">Аудитория</label>
+            <label class="modal__label label">Аудитория</label>
             <p class="modal__text">Аудитория 101 (Главный корпус)</p>
           </div>
 
           <div class="modal__block">
-            <label class="modal__label" for="bookingDate">Дата</label>
+            <label class="modal__label label" for="bookingDate">Дата</label>
             <input id="bookingDate" type="date"
-              class="modal__input modal__input--full">
+              class="modal__input input modal__input--full input--full">
           </div>
 
           <div class="modal__block modal__block--row">
             <div class="modal__block--col">
-              <label class="modal__label" for="startTime">Время начала</label>
+              <label class="modal__label label" for="startTime">Время начала</label>
               <input id="startTime" type="time"
-                class="modal__input modal__input--full">
+                class="modal__input input modal__input--full input--full">
             </div>
             <div class="modal__block--col">
-              <label class="modal__label" for="endTime">Время окончания</label>
+              <label class="modal__label label" for="endTime">Время окончания</label>
               <input id="endTime" type="time"
-                class="modal__input modal__input--full">
+                class="modal__input input modal__input--full input--full">
             </div>
           </div>
 
           <div class="modal__block">
-            <label class="modal__label" for="bookingPurpose">Цель бронирования</label>
+            <label class="modal__label label" for="bookingPurpose">Цель бронирования</label>
             <select id="bookingPurpose"
-              class="modal__input modal__input--full">
+              class="modal__input input modal__input--full input--full">
               <option value="lecture">Лекция</option>
               <option value="seminar">Семинар</option>
               <option value="exam">Экзамен</option>
@@ -523,18 +476,18 @@
           </div>
 
           <div class="modal__block">
-            <label class="modal__label" for="bookingDescription">Дополнительная информация</label>
+            <label class="modal__label label" for="bookingDescription">Дополнительная информация</label>
             <textarea id="bookingDescription" rows="3"
-              class="modal__input modal__input--full"
+              class="modal__input input modal__input--full input--full"
               placeholder="Опишите цель бронирования"></textarea>
           </div>
 
           <div class="modal__block modal__block--row modal__block--end">
             <button type="button" id="cancelBooking"
-              class="modal__button modal__button--cancel">
+              class="modal__button button button--secondary">
               Отмена
             </button>
-            <button type="submit" class="modal__button modal__button--submit">
+            <button type="submit" class="modal__button button">
               Отправить заявку
             </button>
           </div>
@@ -554,10 +507,10 @@
 
         <div class="modal__block modal__block--row">
           <div class="modal__button-group">
-            <button class="modal__button modal__button--active">Все заявки</button>
-            <button class="modal__button">Ожидают подтверждения</button>
-            <button class="modal__button">Подтвержденные</button>
-            <button class="modal__button">Отклоненные</button>
+            <button class="modal__button button">Все заявки</button>
+            <button class="modal__button button">Ожидают подтверждения</button>
+            <button class="modal__button button">Подтвержденные</button>
+            <button class="modal__button button">Отклоненные</button>
           </div>
         </div>
 
