@@ -22,22 +22,23 @@
   <body>
     <header class="nav">
       <nav class="nav__container">
-        <h1 class="nav__header"><a href="/" class="link link--header">Бронирование аудиторий на IT-этаже МАИ</a></h1>
-        <div class="nav__buttons">
+        <h1 class="nav__header">
+          <a href="/" class="link link--header">
+            <div class="nav__title">
+              <span class="nav__title-part">Бронирование аудиторий&nbsp;</span>
+              <span class="nav__title-part--second">на IT-этаже МАИ</span>
+            </div>
+          </a>
+        </h1>
+        <div class="nav__buttons buttons">
           <button id="button-login" class="nav__button button">Авторизация</button>
           <button id="button-map" class="nav__button button button--secondary">Карта этажа</button>
         </div>
-        <div id="mobileMenu" class="nav__mobile-menu" hidden>
-          <div class="nav__mobile-menu-content">
-            <button
-              id="mobileRegisterBtn"
-              class="button button--full nav__mobile-menu-button">Регистрация</button>
-            <button
-              id="mobileLoginBtn"
-              class="button button--primary button--full nav__mobile-menu-button"
-            >Вход</button>
-          </div>
-        </div>
+        <button class="nav__burger" id="navBurger" title="Открыть меню">
+          <span class="nav__burger-line"></span>
+          <span class="nav__burger-line"></span>
+          <span class="nav__burger-line"></span>
+        </button>
       </nav>
     </header>
     <main>
@@ -45,35 +46,6 @@
         <h2 class="filters-list__header">Фильтры</h2>
         <form class="filters-list__content">
           <div class="filters-list__parameters">
-            <div class="filter">
-              <label class="filter__label label" for="filter-type">Тип аудитории</label>
-              <select class="filter__input input" id="filter-type">
-                <option value="" selected>Не выбрано</option>
-                <option value="lectorium">Лекториум</option>
-                <option value="talking">Переговорная</option>
-                <option value="practice">Практическая</option>
-                <option value="lab">Лаборатория</option>
-              </select>
-            </div>
-            <div class="filter">
-              <label class="filter__label label" for="filter-place-min">Вместимость</label>
-              <div class="filter__input-group">
-                <input
-                  class="filter__input input"
-                  id="filter-place-min"
-                  type="number"
-                  placeholder="От"
-                  min="0" max="200"
-                >
-                <input
-                  class="filter__input input"
-                  id="filter-place-max"
-                  type="number"
-                  placeholder="До" 
-                  min="0" max="200"
-                >
-              </div>
-            </div>
             <div class="filter">
               <label class="filter__label label" for="filter-date">Дата</label>
               <input
@@ -98,8 +70,28 @@
                 type="time"
               >
             </div>
+            <div class="filter">
+              <label class="filter__label label" for="filter-place">Вместимость</label>
+              <input
+                class="filter__input input"
+                id="filter-place"
+                type="number"
+                placeholder="От"
+                min="0" max="200"
+              >
+            </div>
+            <div class="filter">
+              <label class="filter__label label" for="filter-type">Тип</label>
+              <select class="filter__input input" id="filter-type">
+                <option value="" selected>Не выбрано</option>
+                <option value="lectorium">Лекториум</option>
+                <option value="talking">Переговорная</option>
+                <option value="practice">Практическая</option>
+                <option value="lab">Лаборатория</option>
+              </select>
+            </div>
             <div class="filter filter--things">
-              <label class="filter__label label">Инфаструктура</label>
+              <label class="filter__label label">Инфраструктура</label>
               <div class="filter__input-group">
                 <div class="filter__input--checkbox">
                   <input 
@@ -152,6 +144,30 @@
                 <div class="filter__input--checkbox">
                   <input 
                     class="filter__input input"
+                    id="filter-things-charging"
+                    name="filter-things"
+                    type="checkbox"
+                  >
+                  <label 
+                    class="filter__label label--checkbox" 
+                    for="filter-things-charging"
+                  >Зарядки</label>
+                </div>
+                <div class="filter__input--checkbox">
+                  <input 
+                    class="filter__input input"
+                    id="filter-things-tv"
+                    name="filter-things"
+                    type="checkbox"
+                  >
+                  <label 
+                    class="filter__label label--checkbox" 
+                    for="filter-things-tv"
+                  >Телевизор</label>
+                </div>
+                <div class="filter__input--checkbox">
+                  <input 
+                    class="filter__input input"
                     id="filter-things-wardrobe"
                     name="filter-things"
                     type="checkbox"
@@ -176,7 +192,7 @@
               </div>
             </div>
           </div>
-          <div class="filters__buttons filter-group-btn">
+          <div class="filters__buttons buttons">
             <button class="filters__button button" type="submit">Применить</button>
             <button class="filters__button button button--secondary" type="reset">Сбросить</button>
           </div>
@@ -186,8 +202,8 @@
         <h2 class="auditoriums-list__header">Каталог</h2> 
         <div class="auditoriums-list__content">
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-0</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-0</h3>
               <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
             </div>
             <div class="auditorium-card__description">
@@ -195,14 +211,14 @@
               <span class="auditorium-card__person">Linus Torvalds</span>
             </div>
             <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 30 человек</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 32 человека</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: маркерная доска, зарядки, телевизор, гардероб</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: доска, зарядки, телевизор, гардероб, диваны</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-1</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-1</h3>
               <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
             </div>
             <div class="auditorium-card__description">
@@ -212,12 +228,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-2</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-2</h3>
               <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
             </div>
             <div class="auditorium-card__description">
@@ -227,12 +243,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-3</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-3</h3>
               <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
             </div>
             <div class="auditorium-card__description">
@@ -242,12 +258,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-5</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-5</h3>
               <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
             </div>
             <div class="auditorium-card__description">
@@ -257,12 +273,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лекториум</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-6</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-6</h3>
               <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
             </div>
             <div class="auditorium-card__description">
@@ -272,12 +288,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-7</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-7</h3>
               <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
             </div>
             <div class="auditorium-card__description">
@@ -287,12 +303,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-8</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-8</h3>
               <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
             </div>
             <div class="auditorium-card__description">
@@ -302,12 +318,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-9</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-9</h3>
               <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
             </div>
             <div class="auditorium-card__description">
@@ -317,12 +333,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-10</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-10</h3>
               <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
             </div>
             <div class="auditorium-card__description">
@@ -332,12 +348,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-11</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-11</h3>
               <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
             </div>
             <div class="auditorium-card__description">
@@ -347,12 +363,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-15</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-15</h3>
               <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
             </div>
             <div class="auditorium-card__description">
@@ -362,12 +378,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-16</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-16</h3>
               <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
             </div>
             <div class="auditorium-card__description">
@@ -377,12 +393,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-17</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-17</h3>
               <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
             </div>
             <div class="auditorium-card__description">
@@ -392,12 +408,12 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 38 человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: 23 компьютера, маркерная доска, проектор, гардероб</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: 23 компьютера, доска, проектор, кондиционер, гардероб</div>
             </div>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__title">
-              <h3 class="auditorium-card__header">it-18</h3>
+            <div class="auditorium-card__header">
+              <h3 class="auditorium-card__name">it-18</h3>
               <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
             </div>
             <div class="auditorium-card__description">
@@ -407,7 +423,7 @@
             <div class="auditorium-card__info">
               <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
               <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Оборудование: ?</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
             </div>
           </article>
         </div>
@@ -416,7 +432,7 @@
     <footer class="footer">
       <div class="footer__content">
         <p class="footer__text">
-          &copy; 2025 <a href="https://github.com/iannsgirdye" class="link">iannsgirdye</a>
+          &copy; 2025 <a href="https://github.com/iannsgirdye" class="link" target="_blank">iannsgirdye</a>
         </p>
         <p class="footer__text">
           Сервис разработан за 4 дня в рамках ознакомительной практики в МАИ.
@@ -656,12 +672,12 @@
     </div>
 
     <!-- Уведомление -->
-    <div id="notification" class="notification notification--success hidden">
+    <!-- <div id="notification" class="notification notification--success hidden">
       <div class="notification__content">
         <i class="fas fa-check-circle notification__icon"></i>
         <span class="notification__text">Ваша заявка успешно отправлена!</span>
       </div>
-    </div>
+    </div> -->
 
     <!-- Модальное окно плана этажа -->
     <div id="floorPlanModal" class="modal modal--floorplan hidden">

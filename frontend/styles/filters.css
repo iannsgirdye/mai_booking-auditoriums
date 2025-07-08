@@ -7,7 +7,7 @@
 .filters-list__content {
   background-color: var(--color-white);
   border-radius: 0.5rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--box-shadow-section);
   overflow: auto;
   padding: 1.5rem;
 }
@@ -17,6 +17,7 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
   margin-bottom: 1.5rem;
+  align-items: end;
 }
 
 .filter {
@@ -53,13 +54,26 @@
   gap: 0.25rem;
 }
 
-.filter__input-group > input {
-  flex-grow: 1;
+.filters__buttons {
+  margin-top: 1rem;
 }
 
-.filters__buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-  margin-top: 1rem;
+@media (max-width: 1024px) {
+  .filters-list {
+    margin-block: 2.25rem;
+  }
+
+  .filters-list__parameters {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .filters-list {
+    margin-block: 2rem;
+  }
+
+  .filters-list__parameters {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

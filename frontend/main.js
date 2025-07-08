@@ -300,4 +300,29 @@ document.addEventListener('DOMContentLoaded', function () {
       closeModal(floorPlanModal);
     });
   }
+
+  const navBurger = document.getElementById('navBurger');
+  if (navBurger && mobileMenu) {
+    navBurger.addEventListener('click', function () {
+      if (mobileMenu.hasAttribute('hidden')) {
+        mobileMenu.removeAttribute('hidden');
+      } else {
+        mobileMenu.setAttribute('hidden', '');
+      }
+    });
+  }
+
+  const mobileMapBtn = document.getElementById('mobileMapBtn');
+  if (mobileLoginBtn) {
+    mobileLoginBtn.addEventListener('click', function () {
+      openAuthModal('login');
+      if (mobileMenu) mobileMenu.setAttribute('hidden', '');
+    });
+  }
+  if (mobileMapBtn) {
+    mobileMapBtn.addEventListener('click', function () {
+      openModal(floorPlanModal);
+      if (mobileMenu) mobileMenu.setAttribute('hidden', '');
+    });
+  }
 }); 

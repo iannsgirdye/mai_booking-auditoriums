@@ -1,12 +1,10 @@
 :root {
-  --auditorium-status-free-bg: #d1fae5;
-  --auditorium-status-free-color: #065f46;
-  --auditorium-status-part-bg: #fef3c7;
-  --auditorium-status-part-color: #92400e;
-  --auditorium-status-occupied-bg: #fee2e2;
-  --auditorium-status-occupied-color: #991b1b;
-  --auditorium-status-disabled-bg: #898787;
-  --auditorium-status-disabled-color: #ffffff;
+  --color-light-green: #d1fae5;
+  --color-green: #065f46;
+  --color-yellow: #fef3c7;
+  --color-brown: #92400e;
+  --color-light-red: #fee2e2;
+  --color-red: #991b1b;
 }
 
 .auditoriums-list {
@@ -22,9 +20,9 @@
 }
 
 .auditorium-card {
-  background: var(--color-white);
+  background-color: var(--color-white);
   border-radius: 0.5rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--box-shadow-card);
   overflow: auto;
   transition-duration: 0.3s;
   cursor: pointer;
@@ -37,50 +35,24 @@
 
 .auditorium-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--box-shadow-card-hover);
 }
 
-.auditorium-card__title {
+.auditorium-card__header {
   display: flex;
   column-gap: 20px;
   justify-content: space-between;
 }
 
-.auditorium-card__header {
+.auditorium-card__name {
   display: inline-block;
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--color-black);
 }
 
-.auditorium-card__body {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.auditorium-card__description {
-  display: flex;
-  flex-direction: column;
-  color: #6b7280;
-  font-size: 0.95rem;
-  min-height: 48px;
-}
-
-.auditorium-card__function {
-  color: #6b7280;
-  font-size: 0.95rem;
-}
-
-.auditorium-card__person {
-  color: #6b7280;
-  font-size: 0.95rem;
-  font-style: italic;
-}
-
 .auditorium-card__status {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 500;
   padding: 0.15rem 0.7rem;
   border-radius: 0.5rem;
@@ -89,23 +61,39 @@
 }
 
 .auditorium-card__status--free {
-  background: var(--auditorium-status-free-bg);
-  color: var(--auditorium-status-free-color);
+  background-color: var(--color-light-green);
+  color: var(--color-green);
 }
 
 .auditorium-card__status--part {
-  background: var(--auditorium-status-part-bg);
-  color: var(--auditorium-status-part-color);
+  background-color: var(--color-yellow);
+  color: var(--color-brown);
 }
 
 .auditorium-card__status--occupied {
-  background: var(--auditorium-status-occupied-bg);
-  color: var(--auditorium-status-occupied-color);
+  background-color: var(--color-light-red);
+  color: var(--color-red);
 }
 
 .auditorium-card__status--disabled {
-  background: var(--auditorium-status-disabled-bg);
-  color: var(--auditorium-status-disabled-color);
+  background-color: var(--color-gray);
+  color: var(--color-white);
+}
+
+.auditorium-card__description {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-light-black);
+  min-height: 3rem;
+}
+
+.auditorium-card__function {
+  font-size: 1rem;
+}
+
+.auditorium-card__person {
+  font-size: 0.95rem;
+  font-style: italic;
 }
 
 .auditorium-card__info {
@@ -113,21 +101,43 @@
   flex-direction: column;
   gap: 0.5rem;
   font-size: 0.95rem;
-  color: #4b5563;
+  color: var(--color-light-black);
 }
 
-.auditorium-card-info__container {
-  margin-top: 1rem;
+.auditorium-card__info-element {
+  display: grid;
+  grid-template-columns: 20px auto;
+  column-gap: 0.25rem;
+  align-items: baseline;
 }
 
-/* @media (max-width: 1024px) {
-  .auditorium-list {
+@media (max-width: 1024px) {
+  .auditoriums-list {
+    margin-block: 2.25rem;
+  }
+
+  .auditoriums-list__content {
     grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
   }
 }
 
-@media (max-width: 700px) {
-  .auditorium-list {
+@media (max-width: 768px) {
+  .auditoriums-list {
+    margin-block: 2rem;
+  }
+
+  .auditoriums-list__content {
+    gap: 1rem;
+  }
+
+  .auditorium-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 568px) {
+  .auditoriums-list__content {
     grid-template-columns: 1fr;
   }
-} */
+}
