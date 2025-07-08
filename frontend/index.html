@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Бронирование аудиторий на IT-этаже</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/modal.css">
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/filters.css">
@@ -22,7 +22,7 @@
           <button id="button-login" class="nav__button button">Авторизация</button>
           <button id="button-map" class="nav__button button button--secondary">Карта этажа</button>
         </div>
-        <div id="mobileMenu" class="nav__mobile-menu hidden">
+        <div id="mobileMenu" class="nav__mobile-menu" hidden>
           <div class="nav__mobile-menu-content">
             <button id="mobileRegisterBtn" class="button button--full nav__mobile-menu-button">Регистрация</button>
             <button id="mobileLoginBtn" class="button button--primary button--full nav__mobile-menu-button">Вход</button>
@@ -30,105 +30,151 @@
         </div>
       </nav>
     </header>
-    <main class="main">
-      <section>
-        <h2 class="section__header">Фильтры</h2>
-        <div class="section__content">
-          <form class="filters">
-            <div class="filters__content">
-              <div class="filter">
-                <label class="filter__label label" for="filter-type">Тип аудитории</label>
-                <select class="filter__input input" id="filter-type">
-                  <option value="" selected>Не выбрано</option>
-                  <option value="lectorium">Лекториум</option>
-                  <option value="talking">Переговорная</option>
-                  <option value="practice">Практическая</option>
-                  <option value="lab">Лаборатория</option>
-                </select>
+    <main>
+      <section class="filters-list">
+        <h2 class="filters-list__header">Фильтры</h2>
+        <form class="filters-list__content">
+          <div class="filters-list__parameters">
+            <div class="filter">
+              <label class="filter__label label" for="filter-type">Тип аудитории</label>
+              <select class="filter__input input" id="filter-type">
+                <option value="" selected>Не выбрано</option>
+                <option value="lectorium">Лекториум</option>
+                <option value="talking">Переговорная</option>
+                <option value="practice">Практическая</option>
+                <option value="lab">Лаборатория</option>
+              </select>
+            </div>
+            <div class="filter">
+              <label class="filter__label label" for="filter-place-min">Вместимость</label>
+              <div class="filter__input-group">
+                <input
+                  class="filter__input input"
+                  id="filter-place-min"
+                  type="number"
+                  placeholder="От"
+                  min="0" max="200"
+                >
+                <input
+                  class="filter__input input"
+                  id="filter-place-max"
+                  type="number"
+                  placeholder="До" 
+                  min="0" max="200"
+                >
               </div>
-              <div class="filter">
-                <label class="filter__label label" for="filter-place">Вместимость</label>
-                <div class="filter__input-group">
-                  <input
+            </div>
+            <div class="filter">
+              <label class="filter__label label" for="filter-date">Дата</label>
+              <input
+                class="filter__input input"
+                id="filter-date"
+                type="date"
+              >
+            </div>
+            <div class="filter">
+              <label class="filter__label label" for="filter-time-start">Время начала</label>
+              <input
+                class="filter__input input"
+                id="filter-time-start"
+                type="time"
+              >
+            </div>
+            <div class="filter">
+              <label class="filter__label label" for="filter-time-end">Время окончания</label>
+              <input
+                class="filter__input input"
+                id="filter-time-end"
+                type="time"
+              >
+            </div>
+            <div class="filter filter--things">
+              <label class="filter__label label">Инфаструктура</label>
+              <div class="filter__input-group">
+                <div class="filter__input--checkbox">
+                  <input 
                     class="filter__input input"
-                    id="filter-place-min"
-                    type="number"
-                    placeholder="От"
-                    min="0" max="200"
+                    id="filter-things-air-conditioner"
+                    name="filter-things"
+                    type="checkbox"
                   >
-                  <input
-                    class="filter__input input"
-                    id="filter-place-max"
-                    type="number"
-                    placeholder="До" 
-                    min="0" max="200"
-                  >
+                  <label
+                    class="filter__label label--checkbox"
+                    for="filter-things-air-conditioner"
+                  >Кондиционер</label>
                 </div>
-              </div>
-              <div class="filter">
-                <label class="filter__label label" for="filter-date">Дата</label>
-                <input
-                  class="filter__input input"
-                  id="filter-date"
-                  type="date"
-                >
-              </div>
-              <div class="filter">
-                <label class="filter__label label" for="filter-time-start">Время начала</label>
-                <input
-                  class="filter__input input"
-                  id="filter-time-start"
-                  type="time"
-                >
-              </div>
-              <div class="filter">
-                <label class="filter__label label" for="filter-time-end">Время окончания</label>
-                <input
-                  class="filter__input input"
-                  id="filter-time-end"
-                  type="time"
-                >
-              </div>
-              <div class="filter filter--things">
-                <label class="filter__label label">Инфаструктура</label>
-                <div class="filter__input-group">
-                  <div>
-                    <input class="filter__input input" name="filter-things" type="checkbox">
-                    <label class="filter__label label--checkbox">Диваны</label>
-                  </div>
-                  <div>
-                    <input class="filter__input input" name="filter-things" type="checkbox">
-                    <label class="filter__label label--checkbox">Кондиционер</label>
-                  </div>
-                  <div>
-                    <input class="filter__input input" name="filter-things" type="checkbox">
-                    <label class="filter__label label--checkbox">Доска</label>
-                  </div>
-                  <div>
-                    <input class="filter__input input" name="filter-things" type="checkbox">
-                    <label class="filter__label label--checkbox">Проектор</label>
-                  </div>
-                  <div>
-                    <input class="filter__input input" name="filter-things" type="checkbox">
-                    <label class="filter__label label--checkbox">Компьютеры</label>
-                  </div>
-                  <div>
-                    <input class="filter__input input" name="filter-things" type="checkbox">
-                    <label class="filter__label label--checkbox">Гардероб</label>
-                  </div>          
+                <div class="filter__input--checkbox">
+                  <input 
+                    class="filter__input input"
+                    id="filter-things-whiteboard"
+                    name="filter-things"
+                    type="checkbox"
+                  >
+                  <label
+                    class="filter__label label--checkbox"
+                    for="filter-things-whiteboard"
+                  >Доска</label>
+                </div>
+                <div class="filter__input--checkbox">
+                  <input 
+                    class="filter__input input"
+                    id="filter-things-projector"
+                    name="filter-things"
+                    type="checkbox"
+                  >
+                  <label
+                    class="filter__label label--checkbox"
+                    for="filter-things-projector"
+                  >Проектор</label>
+                </div>
+                <div class="filter__input--checkbox">
+                  <input 
+                    class="filter__input input"
+                    id="filter-things-computers"
+                    name="filter-things"
+                    type="checkbox"
+                  >
+                  <label
+                    class="filter__label label--checkbox"
+                    for="filter-things-computers"
+                  >Компьютеры</label>
+                </div>
+                <div class="filter__input--checkbox">
+                  <input 
+                    class="filter__input input"
+                    id="filter-things-wardrobe"
+                    name="filter-things"
+                    type="checkbox"
+                  >
+                  <label
+                    class="filter__label label--checkbox"
+                    for="filter-things-wardrobe"
+                  >Гардероб</label>
+                </div>
+                <div class="filter__input--checkbox">
+                  <input 
+                    class="filter__input input"
+                    id="filter-things-sofas"
+                    name="filter-things"
+                    type="checkbox"
+                  >
+                  <label 
+                    class="filter__label label--checkbox" 
+                    for="filter-things-sofas"
+                  >Диваны</label>
                 </div>
               </div>
             </div>
-            <div class="filters__buttons filter-group-btn">
-              <button class="filters__button button" type="submit">Применить</button>
-              <button class="filters__button button button--secondary" type="reset">Сбросить</button>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div class="filters__buttons filter-group-btn">
+            <button class="filters__button button" type="submit">Применить</button>
+            <button class="filters__button button button--secondary" type="reset">Сбросить</button>
+          </div>
+        </form>
       </section>
-      <section>
-        <h2 class="section__header">Каталог</h2> 
-        <div class="auditoriums-list">
+      <section class="auditoriums-list">
+        <h2 class="auditoriums-list__header">Каталог</h2> 
+        <div class="auditoriums-list__content">
           <article class="auditorium-card">
             <div class="auditorium-card__title">
               <h3 class="auditorium-card__header">it-0</h3>
