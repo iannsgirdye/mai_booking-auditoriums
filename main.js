@@ -23,13 +23,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Модальное окно входа
-  const loginBtn = document.getElementById('loginBtn');
+  const loginBtn = document.getElementById('button-login');
   const mobileLoginBtn = document.getElementById('mobileLoginBtn');
   const loginModal = document.getElementById('loginModal');
   const closeLoginModal = document.getElementById('closeLoginModal');
   const switchToRegister = document.getElementById('switchToRegister');
 
-  const registerBtn = document.getElementById('registerBtn');
+  const registerBtn = document.getElementById('button-register');
   const mobileRegisterBtn = document.getElementById('mobileRegisterBtn');
   const registerModal = document.getElementById('registerModal');
   const closeRegisterModal = document.getElementById('closeRegisterModal');
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const adminModal = document.getElementById('adminModal');
   const closeAdminModal = document.getElementById('closeAdminModal');
 
-  document.querySelectorAll('#loginBtn, #mobileLoginBtn').forEach(btn => {
+  document.querySelectorAll('#button-login, #mobileLoginBtn').forEach(btn => {
     btn.addEventListener('dblclick', function () {
       if (adminModal) adminModal.classList.remove('hidden');
     });
