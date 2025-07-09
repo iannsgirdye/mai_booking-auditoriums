@@ -21,16 +21,25 @@
 
 .auditorium-card {
   background-color: var(--color-white);
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-card);
   overflow: auto;
   transition-duration: 0.3s;
   cursor: pointer;
   padding: 1.2rem;
+  height: 100%;
+}
+
+.auditorium-card__container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 100%;
+}
+
+.auditorium-card__link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .auditorium-card:hover {
@@ -55,7 +64,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   padding: 0.15rem 0.7rem;
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
   display: inline-block;
   align-self: start;
 }

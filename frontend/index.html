@@ -10,14 +10,14 @@
     <title>Бронирование аудиторий на IT-этаже МАИ</title>
     <link rel="icon" href="./icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/normalize.css">
-    <link rel="stylesheet" href="./styles/modal.css">
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/filters.css">
-    <link rel="stylesheet" href="./styles/auditoriums.css">
-    <link rel="stylesheet" href="./styles/footer.css">
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="./frontend/styles/styles.css">
+    <link rel="stylesheet" href="./frontend/styles/normalize.css">
+    <link rel="stylesheet" href="./frontend/styles/modal.css">
+    <link rel="stylesheet" href="./frontend/styles/header.css">
+    <link rel="stylesheet" href="./frontend/styles/filters.css">
+    <link rel="stylesheet" href="./frontend/styles/auditoriums.css">
+    <link rel="stylesheet" href="./frontend/styles/footer.css">
+    <script src="./frontend/main.js"></script>
   </head>
   <body>
     <header class="nav">
@@ -46,7 +46,7 @@
         <h2 class="filters-list__header">Фильтры</h2>
         <form class="filters-list__content">
           <div class="filters-list__parameters">
-            <div class="filter">
+            <div class="filter input-zone">
               <label class="filter__label label" for="filter-date">Дата</label>
               <input
                 class="filter__input input"
@@ -54,7 +54,7 @@
                 type="date"
               >
             </div>
-            <div class="filter">
+            <div class="filter input-zone">
               <label class="filter__label label" for="filter-time-start">Время начала</label>
               <input
                 class="filter__input input"
@@ -62,7 +62,7 @@
                 type="time"
               >
             </div>
-            <div class="filter">
+            <div class="filter input-zone">
               <label class="filter__label label" for="filter-time-end">Время окончания</label>
               <input
                 class="filter__input input"
@@ -70,7 +70,7 @@
                 type="time"
               >
             </div>
-            <div class="filter">
+            <div class="filter input-zone">
               <label class="filter__label label" for="filter-place">Вместимость</label>
               <input
                 class="filter__input input"
@@ -80,7 +80,7 @@
                 min="0" max="200"
               >
             </div>
-            <div class="filter">
+            <div class="filter input-zone">
               <label class="filter__label label" for="filter-type">Тип</label>
               <select class="filter__input input" id="filter-type">
                 <option value="" selected>Не выбрано</option>
@@ -90,10 +90,10 @@
                 <option value="lab">Лаборатория</option>
               </select>
             </div>
-            <div class="filter filter--things">
+            <div class="filter filter--things input-zone">
               <label class="filter__label label">Инфраструктура</label>
-              <div class="filter__input-group">
-                <div class="filter__input--checkbox">
+              <div class="input-zone--group">
+                <div class="input-zone--checkbox">
                   <input 
                     class="filter__input input"
                     id="filter-things-air-conditioner"
@@ -105,7 +105,7 @@
                     for="filter-things-air-conditioner"
                   >Кондиционер</label>
                 </div>
-                <div class="filter__input--checkbox">
+                <div class="input-zone--checkbox">
                   <input 
                     class="filter__input input"
                     id="filter-things-whiteboard"
@@ -117,7 +117,7 @@
                     for="filter-things-whiteboard"
                   >Доска</label>
                 </div>
-                <div class="filter__input--checkbox">
+                <div class="input-zone--checkbox">
                   <input 
                     class="filter__input input"
                     id="filter-things-projector"
@@ -129,7 +129,7 @@
                     for="filter-things-projector"
                   >Проектор</label>
                 </div>
-                <div class="filter__input--checkbox">
+                <div class="input-zone--checkbox">
                   <input 
                     class="filter__input input"
                     id="filter-things-computers"
@@ -141,7 +141,7 @@
                     for="filter-things-computers"
                   >Компьютеры</label>
                 </div>
-                <div class="filter__input--checkbox">
+                <div class="input-zone--checkbox">
                   <input 
                     class="filter__input input"
                     id="filter-things-charging"
@@ -153,7 +153,7 @@
                     for="filter-things-charging"
                   >Зарядки</label>
                 </div>
-                <div class="filter__input--checkbox">
+                <div class="input-zone--checkbox">
                   <input 
                     class="filter__input input"
                     id="filter-things-tv"
@@ -165,7 +165,7 @@
                     for="filter-things-tv"
                   >Телевизор</label>
                 </div>
-                <div class="filter__input--checkbox">
+                <div class="input-zone--checkbox">
                   <input 
                     class="filter__input input"
                     id="filter-things-wardrobe"
@@ -177,7 +177,7 @@
                     for="filter-things-wardrobe"
                   >Гардероб</label>
                 </div>
-                <div class="filter__input--checkbox">
+                <div class="input-zone--checkbox">
                   <input 
                     class="filter__input input"
                     id="filter-things-sofas"
@@ -202,229 +202,289 @@
         <h2 class="auditoriums-list__header">Каталог</h2> 
         <div class="auditoriums-list__content">
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-0</h3>
-              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Пространство самоподготовки</span>
-              <span class="auditorium-card__person">Linus Torvalds</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 32 человека</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: доска, зарядки, телевизор, гардероб, диваны</div>
-            </div>
+            <a href="./frontend/auditoriums/it-0.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-0</h3>
+                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Пространство самоподготовки</span>
+                  <span class="auditorium-card__person">Linus Torvalds</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 32 человека</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: доска, зарядки, телевизор, гардероб, диваны</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-1</h3>
-              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">VR зона</span>
-              <span class="auditorium-card__person">John Carmack</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-1.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-1</h3>
+                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">VR зона</span>
+                  <span class="auditorium-card__person">John Carmack</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-2</h3>
-              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Лаборатория XR</span>
-              <span class="auditorium-card__person">Ivan Sutherland</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-2.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-2</h3>
+                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Лаборатория XR</span>
+                  <span class="auditorium-card__person">Ivan Sutherland</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-3</h3>
-              <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Компьютерный класс - 1</span>
-              <span class="auditorium-card__person">Jonathan Blow</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-3.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-3</h3>
+                  <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Компьютерный класс - 1</span>
+                  <span class="auditorium-card__person">Jonathan Blow</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-5</h3>
-              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Лекториум</span>
-              <span class="auditorium-card__person">Mikhail Pagosyan</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лекториум</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-5.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-5</h3>
+                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Лекториум</span>
+                  <span class="auditorium-card__person">Mikhail Pagosyan</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лекториум</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-6</h3>
-              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Лаборатория информационной безопасности</span>
-              <span class="auditorium-card__person">Blaise de Vigenere</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-6.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-6</h3>
+                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Лаборатория информационной безопасности</span>
+                  <span class="auditorium-card__person">Blaise de Vigenere</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-7</h3>
-              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Видео студия</span>
-              <span class="auditorium-card__person">John Lasseter</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-7.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-7</h3>
+                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Видео студия</span>
+                  <span class="auditorium-card__person">John Lasseter</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-8</h3>
-              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Лаборатория ИИ и моделирования</span>
-              <span class="auditorium-card__person">Alan Turing</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-8.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-8</h3>
+                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Лаборатория ИИ и моделирования</span>
+                  <span class="auditorium-card__person">Alan Turing</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-9</h3>
-              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Лаборатория лямбда</span>
-              <span class="auditorium-card__person">NERV</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-9.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-9</h3>
+                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Лаборатория лямбда</span>
+                  <span class="auditorium-card__person">NERV</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-10</h3>
-              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Переговорная</span>
-              <span class="auditorium-card__person">Carl Sagan</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-10.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-10</h3>
+                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Переговорная</span>
+                  <span class="auditorium-card__person">Carl Sagan</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-11</h3>
-              <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Центр олимпиадного программирования</span>
-              <span class="auditorium-card__person">Zzz</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-11.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-11</h3>
+                  <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Центр олимпиадного программирования</span>
+                  <span class="auditorium-card__person">Zzz</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-15</h3>
-              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Компьютерный класс - 2</span>
-              <span class="auditorium-card__person">Ada Lovelace</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-15.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-15</h3>
+                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Компьютерный класс - 2</span>
+                  <span class="auditorium-card__person">Ada Lovelace</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-16</h3>
-              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Сотрудники</span>
-              <span class="auditorium-card__person">Ulyan Pirumov</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-16.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-16</h3>
+                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Сотрудники</span>
+                  <span class="auditorium-card__person">Ulyan Pirumov</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-17</h3>
-              <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Компьютерный класс - 3</span>
-              <span class="auditorium-card__person">Niklaus Wirth</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 38 человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: 23 компьютера, доска, проектор, кондиционер, гардероб</div>
-            </div>
+            <a href="./frontend/auditoriums/it-17.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-17</h3>
+                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">Компьютерный класс - 3</span>
+                  <span class="auditorium-card__person">Niklaus Wirth</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 38 человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: 23 компьютера, доска, проектор, кондиционер, гардероб</div>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="auditorium-card">
-            <div class="auditorium-card__header">
-              <h3 class="auditorium-card__name">it-18</h3>
-              <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-            </div>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">НИО-806</span>
-              <span class="auditorium-card__person">Navier & Stokies</span>
-            </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-            </div>
+            <a href="./frontend/auditoriums/it-18.html" class="auditorium-card__link">
+              <div class="auditorium-card__container">
+                <div class="auditorium-card__header">
+                  <h3 class="auditorium-card__name">it-18</h3>
+                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+                </div>
+                <div class="auditorium-card__description">
+                  <span class="auditorium-card__function">НИО-806</span>
+                  <span class="auditorium-card__person">Navier & Stokies</span>
+                </div>
+                <div class="auditorium-card__info">
+                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
           </article>
         </div>
       </section>
@@ -440,69 +500,82 @@
       </div>
     </footer>
 
-    <!-- Модальное окно авторизации -->
+    <div id="floorPlanModal" class="modal hidden">
+      <div class="modal__container">
+        <div class="modal__title">
+          <h3 class="modal__header">План этажа</h3>
+          <button id="closeFloorPlanModal" class="modal__close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal__content modal__floorplan">
+          <span class="modal__placeholder">[План этажа будет здесь]</span>
+        </div>
+      </div>
+    </div>
+
     <div id="authModal" class="modal modal--auth hidden">
-      <div class="modal__content modal__content--auth">
-        <div class="modal__header">
+      <div class="modal__container">
+        <div class="modal__title">
           <div class="modal__tabs">
-            <button id="authTabLogin" class="modal__tab modal__tab--active button">Вход</button>
-            <button id="authTabRegister" class="modal__tab button">Регистрация</button>
+            <button
+              id="authTabLogin"
+              class="modal__tab modal__tab--active button"
+              style="width: 3.5rem;"
+            >Вход</button>
+            <button
+              id="authTabRegister"
+              class="modal__tab button"
+              style="width: 8rem;"
+            >Регистрация</button>
           </div>
           <button id="closeAuthModal" class="modal__close">
             <i class="fas fa-times"></i>
           </button>
         </div>
-        <div class="modal__body">
-          <!-- Вход -->
-          <form id="authLoginForm" class="modal__form">
-            <div class="modal__block">
-              <label class="modal__label label" for="authLoginEmail">Email</label>
-              <input id="authLoginEmail" type="email" class="modal__input input modal__input--full input--full" placeholder="Введите ваш email">
+        <div class="modal__content">
+          <form id="authLoginForm" class="modal__block">
+            <div class="input-zone">
+              <label class="modal__label label" for="authLoginEmail">Логин</label>
+              <input class="modal__input input" id="authLoginEmail" type="text">
             </div>
-            <div class="modal__block">
+            <div class="input-zone">
               <label class="modal__label label" for="authLoginPassword">Пароль</label>
-              <input id="authLoginPassword" type="password" class="modal__input input modal__input--full input--full" placeholder="Введите пароль">
+              <input class="modal__input input" id="authLoginPassword" type="password" >
             </div>
-            <div class="modal__block modal__block--row">
-              <div class="modal__checkbox-group">
-                <input id="authRememberMe" type="checkbox" class="modal__checkbox">
-                <label for="authRememberMe" class="modal__checkbox-label">Запомнить меня</label>
+            <div class="modal__inputs-group">
+              <div class="input-zone--checkbox">
+                <input class="modal__input-checkbox input--checkbox" id="authRememberMe" type="checkbox" >
+                <label class="modal__label-checkbox label--checkbox" for="authRememberMe" >Запомнить меня</label>
               </div>
-              <a href="#" class="modal__link">Забыли пароль?</a>
+              <div>
+                <a href="#" class="modal__link link">Забыли пароль?</a>
+              </div>
             </div>
             <button type="submit" class="modal__button button">Войти</button>
           </form>
-          <!-- Регистрация -->
-          <form id="authRegisterForm" class="modal__form hidden">
-            <div class="modal__block">
+          <form id="authRegisterForm" class="modal__block hidden">
+            <div class="input-zone">
               <label class="modal__label label" for="authRegisterName">ФИО</label>
-              <input id="authRegisterName" type="text" class="modal__input input modal__input--full input--full" placeholder="Введите ваше полное имя">
+              <input class="modal__input input" id="authRegisterName" type="text">
             </div>
-            <div class="modal__block">
-              <label class="modal__label label" for="authRegisterEmail">Email</label>
-              <input id="authRegisterEmail" type="email" class="modal__input input modal__input--full input--full" placeholder="Введите ваш email">
+            <div class="input-zone">
+              <label class="modal__label label" for="authRegisterEmail">Логин</label>
+              <input class="modal__input input" id="authRegisterEmail" type="text">
             </div>
-            <div class="modal__block">
+            <div class="input-zone">
               <label class="modal__label label" for="authRegisterPassword">Пароль</label>
-              <input id="authRegisterPassword" type="password" class="modal__input input modal__input--full input--full" placeholder="Придумайте пароль">
+              <input class="modal__input input" id="authRegisterPassword" type="password">
             </div>
-            <div class="modal__block">
-              <label class="modal__label label" for="authRegisterConfirmPassword">Подтвердите пароль</label>
-              <input id="authRegisterConfirmPassword" type="password" class="modal__input input modal__input--full input--full" placeholder="Повторите пароль">
+            <div class="input-zone">
+              <label class="modal__label label" for="authRegisterConfirmPassword">Повтор пароля</label>
+              <input class="modal__input input" id="authRegisterConfirmPassword" type="password">
             </div>
-            <div class="modal__block">
-              <label class="modal__label label" for="authRegisterRole">Роль</label>
-              <select id="authRegisterRole" class="modal__input input modal__input--full input--full">
-                <option value="student">Студент</option>
-                <option value="teacher">Преподаватель</option>
-                <option value="admin">Администратор</option>
-              </select>
-            </div>
-            <div class="modal__block modal__block--row">
-              <div class="modal__checkbox-group">
-                <input id="authAgreeTerms" type="checkbox" class="modal__checkbox">
-                <label for="authAgreeTerms" class="modal__checkbox-label">Я согласен с <a href="#" class="modal__link">условиями использования</a></label>
-              </div>
+            <div class="input-zone--checkbox">
+              <input class="modal__checkbox" id="authAgreeTerms" type="checkbox">
+              <label class="modal__checkbox-label" for="authAgreeTerms">
+                Я согласен с <a href="#" class="modal__link link">условиями использования</a>
+              </label>
             </div>
             <button type="submit" class="modal__button button">Зарегистрироваться</button>
           </form>
@@ -510,74 +583,80 @@
       </div>
     </div>
 
-    <!-- Модальное окно бронирования -->
     <div id="bookingModal" class="modal modal--booking hidden">
-      <div class="modal__content modal__content--booking">
-        <div class="modal__header">
-          <h3 class="modal__title">Бронирование аудитории</h3>
+      <div class="modal__container modal__container--booking">
+        <div class="modal__title">
+          <h3 class="modal__header">Бронирование аудитории</h3>
           <button id="closeBookingModal" class="modal__close">
             <i class="fas fa-times"></i>
           </button>
         </div>
-
-        <form class="modal__form">
+        <div class="modal__content">
           <div class="modal__block">
-            <label class="modal__label label">Аудитория</label>
-            <p class="modal__text">Аудитория 101 (Главный корпус)</p>
-          </div>
-
-          <div class="modal__block">
-            <label class="modal__label label" for="bookingDate">Дата</label>
-            <input id="bookingDate" type="date"
-              class="modal__input input modal__input--full input--full">
-          </div>
-
-          <div class="modal__block modal__block--row">
-            <div class="modal__block--col">
-              <label class="modal__label label" for="startTime">Время начала</label>
-              <input id="startTime" type="time"
-                class="modal__input input modal__input--full input--full">
+            <h4 class="modal__block-header">it-0</h4>
+            <div class="auditorium-card__description">
+              <span class="auditorium-card__function">Пространство самоподготовки</span>
+              <span class="auditorium-card__person">Linus Torvalds</span>
             </div>
-            <div class="modal__block--col">
-              <label class="modal__label label" for="endTime">Время окончания</label>
-              <input id="endTime" type="time"
-                class="modal__input input modal__input--full input--full">
+            <div class="auditorium-card__info">
+              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 32 человека</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: доска, зарядки, телевизор, гардероб, диваны</div>
             </div>
           </div>
+          <form class="modal__block">
+            <div class="modal__block--old">
+              <label class="modal__label label" for="bookingDate">Дата</label>
+              <input id="bookingDate" type="date"
+                class="modal__input input modal__input--full input--full">
+            </div>
 
-          <div class="modal__block">
-            <label class="modal__label label" for="bookingPurpose">Цель бронирования</label>
-            <select id="bookingPurpose"
-              class="modal__input input modal__input--full input--full">
-              <option value="lecture">Лекция</option>
-              <option value="seminar">Семинар</option>
-              <option value="exam">Экзамен</option>
-              <option value="meeting">Собрание</option>
-              <option value="other">Другое</option>
-            </select>
-          </div>
+            <div class="modal__block--old modal__block--old--row">
+              <div class="modal__block--old--col">
+                <label class="modal__label label" for="startTime">Время начала</label>
+                <input id="startTime" type="time"
+                  class="modal__input input modal__input--full input--full">
+              </div>
+              <div class="modal__block--old--col">
+                <label class="modal__label label" for="endTime">Время окончания</label>
+                <input id="endTime" type="time"
+                  class="modal__input input modal__input--full input--full">
+              </div>
+            </div>
 
-          <div class="modal__block">
-            <label class="modal__label label" for="bookingDescription">Дополнительная информация</label>
-            <textarea id="bookingDescription" rows="3"
-              class="modal__input input modal__input--full input--full"
-              placeholder="Опишите цель бронирования"></textarea>
-          </div>
+            <div class="modal__block--old">
+              <label class="modal__label label" for="bookingPurpose">Цель бронирования</label>
+              <select id="bookingPurpose"
+                class="modal__input input modal__input--full input--full">
+                <option value="lecture">Лекция</option>
+                <option value="seminar">Семинар</option>
+                <option value="exam">Экзамен</option>
+                <option value="meeting">Собрание</option>
+                <option value="other">Другое</option>
+              </select>
+            </div>
 
-          <div class="modal__block modal__block--row modal__block--end">
-            <button type="button" id="cancelBooking"
-              class="modal__button button button--secondary">
-              Отмена
-            </button>
-            <button type="submit" class="modal__button button">
-              Отправить заявку
-            </button>
-          </div>
-        </form>
+            <div class="modal__block--old">
+              <label class="modal__label label" for="bookingDescription">Дополнительная информация</label>
+              <textarea id="bookingDescription" rows="3"
+                class="modal__input input modal__input--full input--full"
+                placeholder="Опишите цель бронирования"></textarea>
+            </div>
+
+            <div class="modal__block--old modal__block--old--row modal__block--old--end">
+              <button type="button" id="cancelBooking"
+                class="modal__button button button--secondary">
+                Отмена
+              </button>
+              <button type="submit" class="modal__button button">
+                Отправить заявку
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
-    <!-- Модальное окно администратора -->
     <div id="adminModal" class="modal modal--admin hidden">
       <div class="modal__content modal__content--admin">
         <div class="modal__header">
@@ -587,7 +666,7 @@
           </button>
         </div>
 
-        <div class="modal__block modal__block--row">
+        <div class="modal__block--old modal__block--old--row">
           <div class="modal__button-group">
             <button class="modal__button button">Все заявки</button>
             <button class="modal__button button">Ожидают подтверждения</button>
@@ -670,29 +749,5 @@
         </div>
       </div>
     </div>
-
-    <!-- Уведомление -->
-    <!-- <div id="notification" class="notification notification--success hidden">
-      <div class="notification__content">
-        <i class="fas fa-check-circle notification__icon"></i>
-        <span class="notification__text">Ваша заявка успешно отправлена!</span>
-      </div>
-    </div> -->
-
-    <!-- Модальное окно плана этажа -->
-    <div id="floorPlanModal" class="modal modal--floorplan hidden">
-      <div class="modal__content modal__content--floorplan">
-        <div class="modal__header">
-          <h3 class="modal__title">План этажа</h3>
-          <button id="closeFloorPlanModal" class="modal__close">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        <div class="modal__body modal__body--floorplan">
-          <span class="modal__body-placeholder">[План этажа будет здесь]</span>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
-

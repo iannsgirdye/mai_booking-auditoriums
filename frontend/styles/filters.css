@@ -6,7 +6,7 @@
 
 .filters-list__content {
   background-color: var(--color-white);
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-section);
   overflow: auto;
   padding: 1.5rem;
@@ -20,38 +20,8 @@
   align-items: end;
 }
 
-.filter {
-  display: flex;
-  flex-direction: column;
-  column-gap: 0.5rem;
-}
-
 .filter--things {
   grid-column: 1 / -1;
-}
-
-.filter__input-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.filter--things > div {
-  display: inline-flex;
-  gap: 1rem;
-  border: 2px solid var(--color-dark-gray);
-  border-radius: 0.5rem;
-  box-sizing: border-box;
-  padding: 0.5rem;
-  font-size: 1rem;
-  height: 2.75rem;
-}
-
-.filter__input--checkbox {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
 }
 
 .filters__buttons {

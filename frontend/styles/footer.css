@@ -2,7 +2,7 @@
   background: var(--color-white);
   box-shadow: var(--box-shadow-section-reverse);
   padding: 1.5rem;
-  border-radius: 0.5rem 0.5rem 0 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 .footer__content {
