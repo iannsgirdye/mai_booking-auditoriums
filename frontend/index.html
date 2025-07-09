@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Бронирование аудиторий на IT-этаже МАИ">
-    <meta name="keywords" content="МАИ, бронирование, аудитории, IT-этаж, лекториум, лаборатория, переговорная">
+    <meta name="description" content="Бронирование комнат на IT-этаже МАИ">
+    <meta name="keywords" content="МАИ, бронирование, комнат, IT-этаж, лекториум, лаборатория, переговорная">
     <meta name="author" content="iannsgirdye">
     <meta name="theme-color" content="#ffffff">
-    <title>Бронирование аудиторий на IT-этаже МАИ</title>
-    <link rel="icon" href="./icons/favicon.ico" type="image/x-icon">
+    <title>Бронирование комнат на IT-этаже МАИ</title>
+    <link rel="icon" href="./frontend/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./frontend/styles/styles.css">
     <link rel="stylesheet" href="./frontend/styles/normalize.css">
     <link rel="stylesheet" href="./frontend/styles/modal.css">
     <link rel="stylesheet" href="./frontend/styles/header.css">
     <link rel="stylesheet" href="./frontend/styles/filters.css">
-    <link rel="stylesheet" href="./frontend/styles/auditoriums.css">
+    <link rel="stylesheet" href="./frontend/styles/rooms.css">
     <link rel="stylesheet" href="./frontend/styles/footer.css">
     <script src="./frontend/main.js"></script>
   </head>
@@ -25,7 +25,7 @@
         <h1 class="nav__header">
           <a href="/" class="link link--header">
             <div class="nav__title">
-              <span class="nav__title-part">Бронирование аудиторий&nbsp;</span>
+              <span class="nav__title-part">Бронирование комнат&nbsp;</span>
               <span class="nav__title-part--second">на IT-этаже МАИ</span>
             </div>
           </a>
@@ -198,290 +198,290 @@
           </div>
         </form>
       </section>
-      <section class="auditoriums-list">
-        <h2 class="auditoriums-list__header">Каталог</h2> 
-        <div class="auditoriums-list__content">
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-0.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-0</h3>
-                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+      <section class="rooms-list">
+        <h2 class="rooms-list__header">Каталог</h2> 
+        <div class="rooms-list__content">
+          <article class="room-card">
+            <a href="./frontend/rooms/it-0.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-0</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
                 </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Пространство самоподготовки</span>
-                  <span class="auditorium-card__person">Linus Torvalds</span>
+                <div class="room-card__description">
+                  <span class="room-card__function">Пространство самоподготовки</span>
+                  <span class="room-card__person">Linus Torvalds</span>
                 </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 32 человека</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: доска, зарядки, телевизор, гардероб, диваны</div>
-                </div>
-              </div>
-            </a>
-          </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-1.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-1</h3>
-                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-                </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">VR зона</span>
-                  <span class="auditorium-card__person">John Carmack</span>
-                </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: 32 человека</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: доска, зарядки, телевизор, гардероб, диваны</div>
                 </div>
               </div>
             </a>
           </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-2.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-2</h3>
-                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-1.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-1</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
                 </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Лаборатория XR</span>
-                  <span class="auditorium-card__person">Ivan Sutherland</span>
+                <div class="room-card__description">
+                  <span class="room-card__function">VR зона</span>
+                  <span class="room-card__person">John Carmack</span>
                 </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-                </div>
-              </div>
-            </a>
-          </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-3.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-3</h3>
-                  <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
-                </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Компьютерный класс - 1</span>
-                  <span class="auditorium-card__person">Jonathan Blow</span>
-                </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
                 </div>
               </div>
             </a>
           </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-5.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-5</h3>
-                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-2.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-2</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
                 </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Лекториум</span>
-                  <span class="auditorium-card__person">Mikhail Pagosyan</span>
+                <div class="room-card__description">
+                  <span class="room-card__function">Лаборатория XR</span>
+                  <span class="room-card__person">Ivan Sutherland</span>
                 </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лекториум</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-                </div>
-              </div>
-            </a>
-          </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-6.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-6</h3>
-                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-                </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Лаборатория информационной безопасности</span>
-                  <span class="auditorium-card__person">Blaise de Vigenere</span>
-                </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
                 </div>
               </div>
             </a>
           </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-7.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-7</h3>
-                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-3.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-3</h3>
+                  <span class="room-card__status room-card__status--occupied">Занята</span>
                 </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Видео студия</span>
-                  <span class="auditorium-card__person">John Lasseter</span>
+                <div class="room-card__description">
+                  <span class="room-card__function">Компьютерный класс - 1</span>
+                  <span class="room-card__person">Jonathan Blow</span>
                 </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-                </div>
-              </div>
-            </a>
-          </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-8.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-8</h3>
-                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-                </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Лаборатория ИИ и моделирования</span>
-                  <span class="auditorium-card__person">Alan Turing</span>
-                </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
                 </div>
               </div>
             </a>
           </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-9.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-9</h3>
-                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-5.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-5</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
                 </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Лаборатория лямбда</span>
-                  <span class="auditorium-card__person">NERV</span>
+                <div class="room-card__description">
+                  <span class="room-card__function">Лекториум</span>
+                  <span class="room-card__person">Mikhail Pagosyan</span>
                 </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-                </div>
-              </div>
-            </a>
-          </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-10.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-10</h3>
-                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
-                </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Переговорная</span>
-                  <span class="auditorium-card__person">Carl Sagan</span>
-                </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лекториум</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
                 </div>
               </div>
             </a>
           </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-11.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-11</h3>
-                  <span class="auditorium-card__status auditorium-card__status--occupied">Занята</span>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-6.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-6</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
                 </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Центр олимпиадного программирования</span>
-                  <span class="auditorium-card__person">Zzz</span>
+                <div class="room-card__description">
+                  <span class="room-card__function">Лаборатория информационной безопасности</span>
+                  <span class="room-card__person">Blaise de Vigenere</span>
                 </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-                </div>
-              </div>
-            </a>
-          </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-15.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-15</h3>
-                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-                </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Компьютерный класс - 2</span>
-                  <span class="auditorium-card__person">Ada Lovelace</span>
-                </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
                 </div>
               </div>
             </a>
           </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-16.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-16</h3>
-                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-7.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-7</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
                 </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Сотрудники</span>
-                  <span class="auditorium-card__person">Ulyan Pirumov</span>
+                <div class="room-card__description">
+                  <span class="room-card__function">Видео студия</span>
+                  <span class="room-card__person">John Lasseter</span>
                 </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
-                </div>
-              </div>
-            </a>
-          </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-17.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-17</h3>
-                  <span class="auditorium-card__status auditorium-card__status--free">Свободна</span>
-                </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">Компьютерный класс - 3</span>
-                  <span class="auditorium-card__person">Niklaus Wirth</span>
-                </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 38 человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: 23 компьютера, доска, проектор, кондиционер, гардероб</div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
                 </div>
               </div>
             </a>
           </article>
-          <article class="auditorium-card">
-            <a href="./frontend/auditoriums/it-18.html" class="auditorium-card__link">
-              <div class="auditorium-card__container">
-                <div class="auditorium-card__header">
-                  <h3 class="auditorium-card__name">it-18</h3>
-                  <span class="auditorium-card__status auditorium-card__status--part">Частично занята</span>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-8.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-8</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
                 </div>
-                <div class="auditorium-card__description">
-                  <span class="auditorium-card__function">НИО-806</span>
-                  <span class="auditorium-card__person">Navier & Stokies</span>
+                <div class="room-card__description">
+                  <span class="room-card__function">Лаборатория ИИ и моделирования</span>
+                  <span class="room-card__person">Alan Turing</span>
                 </div>
-                <div class="auditorium-card__info">
-                  <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
-                  <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-9.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-9</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Лаборатория лямбда</span>
+                  <span class="room-card__person">NERV</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-10.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-10</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Переговорная</span>
+                  <span class="room-card__person">Carl Sagan</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-11.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-11</h3>
+                  <span class="room-card__status room-card__status--occupied">Занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Центр олимпиадного программирования</span>
+                  <span class="room-card__person">Zzz</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-15.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-15</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Компьютерный класс - 2</span>
+                  <span class="room-card__person">Ada Lovelace</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-16.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-16</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Сотрудники</span>
+                  <span class="room-card__person">Ulyan Pirumov</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-17.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-17</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Компьютерный класс - 3</span>
+                  <span class="room-card__person">Niklaus Wirth</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: 38 человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: 23 компьютера, доска, проектор, кондиционер, гардероб</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card">
+            <a href="./frontend/rooms/it-18.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-18</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">НИО-806</span>
+                  <span class="room-card__person">Navier & Stokies</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
                 </div>
               </div>
             </a>
@@ -586,7 +586,7 @@
     <div id="bookingModal" class="modal modal--booking hidden">
       <div class="modal__container modal__container--booking">
         <div class="modal__title">
-          <h3 class="modal__header">Бронирование аудитории</h3>
+          <h3 class="modal__header">Бронирование комнат</h3>
           <button id="closeBookingModal" class="modal__close">
             <i class="fas fa-times"></i>
           </button>
@@ -594,14 +594,14 @@
         <div class="modal__content">
           <div class="modal__block">
             <h4 class="modal__block-header">it-0</h4>
-            <div class="auditorium-card__description">
-              <span class="auditorium-card__function">Пространство самоподготовки</span>
-              <span class="auditorium-card__person">Linus Torvalds</span>
+            <div class="room-card__description">
+              <span class="room-card__function">Пространство самоподготовки</span>
+              <span class="room-card__person">Linus Torvalds</span>
             </div>
-            <div class="auditorium-card__info">
-              <div class="auditorium-card__info-element"><i class="fas fa-users"></i> Вместимость: 32 человека</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
-              <div class="auditorium-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: доска, зарядки, телевизор, гардероб, диваны</div>
+            <div class="room-card__info">
+              <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: 32 человека</div>
+              <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+              <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: доска, зарядки, телевизор, гардероб, диваны</div>
             </div>
           </div>
           <form class="modal__block">
@@ -679,7 +679,7 @@
           <table class="modal__table">
             <thead class="modal__table-head">
               <tr>
-                <th scope="col" class="modal__table-th">Аудитория</th>
+                <th scope="col" class="modal__table-th">Комната</th>
                 <th scope="col" class="modal__table-th">Дата</th>
                 <th scope="col" class="modal__table-th">Время</th>
                 <th scope="col" class="modal__table-th">Пользователь</th>
@@ -689,7 +689,7 @@
             </thead>
             <tbody class="modal__table-body">
               <tr>
-                <td class="modal__table-td">Аудитория 101</td>
+                <td class="modal__table-td">Комната 101</td>
                 <td class="modal__table-td">15.06.2023</td>
                 <td class="modal__table-td">10:00 - 12:00</td>
                 <td class="modal__table-td">Иванов И.И.</td>
@@ -702,7 +702,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="modal__table-td">Аудитория 205</td>
+                <td class="modal__table-td">Комната 205</td>
                 <td class="modal__table-td">14.06.2023</td>
                 <td class="modal__table-td">14:00 - 16:00</td>
                 <td class="modal__table-td">Петров П.П.</td>
