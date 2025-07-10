@@ -69,6 +69,14 @@
   border-radius: var(--border-radius);
 }
 
+.booking-busy__datetime {
+  font-weight: bold;
+}
+
+.booking-busy__user {
+  font-style: italic;
+}
+
 .icon-arrows {
   font-size: 2rem;
   color: var(--color-black);
