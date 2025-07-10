@@ -13,13 +13,17 @@
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-card-hover);
   min-width: 20rem;
-  max-width: 80vw;
+  max-width: 90vw;
   width: 100%;
-  max-height: 80vh;
+  max-height: 90vh;
   overflow-y: auto;
 }
 
 .modal__container--auth {
+  max-width: 30rem;
+}
+
+.modal__container--settings {
   max-width: 30rem;
 }
 
