@@ -20,24 +20,24 @@
     <script src="./main.js"></script>
   </head>
   <body>
-    <header class="nav">
-      <nav class="nav__container">
-        <h1 class="nav__header">
+    <header class="navigation">
+      <nav class="navigation__container">
+        <h1 class="navigation__header">
           <a href="./index.html" class="link link--header">
-            <div class="nav__title">
-              <span class="nav__title-part">Бронирование комнат&nbsp;</span>
-              <span class="nav__title-part--second">на IT-этаже МАИ</span>
+            <div class="navigation__title">
+              <span class="navigation__title-part">Бронирование комнат&nbsp;</span>
+              <span class="navigation__title-part--second">на IT-этаже МАИ</span>
             </div>
           </a>
         </h1>
-        <div class="nav__buttons buttons">
-          <button id="button-login" class="nav__button button">Авторизация</button>
-          <button id="button-map" class="nav__button button button--secondary">Карта этажа</button>
+        <div class="navigation__buttons buttons">
+          <button id="button-login" class="navigation__button button">Вход</button>
+          <button id="button-map" class="navigation__button button button--secondary">Карта этажа</button>
         </div>
-        <button class="nav__burger" id="navBurger" title="Открыть меню">
-          <span class="nav__burger-line"></span>
-          <span class="nav__burger-line"></span>
-          <span class="nav__burger-line"></span>
+        <button class="navigation__burger" id="navigationBurger" title="Открыть меню">
+          <span class="navigation__burger-line"></span>
+          <span class="navigation__burger-line"></span>
+          <span class="navigation__burger-line"></span>
         </button>
       </nav>
     </header>
@@ -517,18 +517,7 @@
     <div id="authModal" class="modal modal--auth hidden">
       <div class="modal__container modal__container--auth">
         <div class="modal__title">
-          <div class="modal__tabs">
-            <button
-              id="authTabLogin"
-              class="modal__tab modal__tab--active button"
-              style="width: 3.5rem;"
-            >Вход</button>
-            <button
-              id="authTabRegister"
-              class="modal__tab button"
-              style="width: 8rem;"
-            >Регистрация</button>
-          </div>
+          <h3 class="modal__header">Вход</h3>
           <button id="closeAuthModal" class="modal__close">
             <i class="fas fa-times"></i>
           </button>
