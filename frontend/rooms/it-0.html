@@ -60,17 +60,20 @@
           </div>
         </section>
         <section class="booking-photo block">
-          <div class="booking-photo__container-for-icon">
+          <h3 class="booking-busy__header" hidden>Фотографии</h3>
+          <div class="booking-photo__container">
             <div class="booking-photo__content">
               <img src="../images/rooms/it-0-1.jpg" alt="Комната it-0, фото 1" class="booking-photo__image">
               <img src="../images/rooms/it-0-2.jpg" alt="Комната it-0, фото 2" class="booking-photo__image">
-              <img src="../images/rooms/it-0-1.jpg" alt="Комната it-0, фото 3" class="booking-photo__image">
-              <img src="../images/rooms/it-0-2.jpg" alt="Комната it-0, фото 4" class="booking-photo__image">
+              <img src="../images/rooms/it-0-3.jpg" alt="Комната it-0, фото 3" class="booking-photo__image">
+              <img src="../images/rooms/it-0-4.jpg" alt="Комната it-0, фото 4" class="booking-photo__image">
+              <img src="../images/rooms/it-0-5.jpg" alt="Комната it-0, фото 5" class="booking-photo__image">
             </div>
             <i class="fa-solid fa-arrows-up-down booking-arrow-icon"></i>
           </div>
         </section>
         <section class="booking-form block">
+          <h3 class="booking-busy__header" hidden>Бронирование</h3>
           <form class="booking-form__content">
             <div class="booking-form__parameters">
               <div class="parameter input-zone">
@@ -79,6 +82,7 @@
                   class="parameter__input input"
                   id="parameter-date"
                   type="date"
+                  required
                 >
               </div>
               <div class="parameter input-zone">
@@ -87,6 +91,7 @@
                   class="parameter__input input"
                   id="parameter-time-start"
                   type="time"
+                  required
                 >
               </div>
               <div class="parameter input-zone">
@@ -95,6 +100,7 @@
                   class="parameter__input input"
                   id="parameter-time-end"
                   type="time"
+                  required
                 >
               </div>
               <div class="parameter input-zone">
@@ -137,7 +143,7 @@
         </section>
         <section class="booking-busy block">
           <h3 class="booking-busy__header" hidden>Забронировано</h3>
-          <div class="booking-busy__container-for-icon">
+          <div class="booking-busy__container">
             <div class="booking-busy__content">
               <div class="booking-busy__item">
                 <span class="booking-busy__datetime label">10.07.2025 10:00-12:00</span>
