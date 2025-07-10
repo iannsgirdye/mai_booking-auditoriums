@@ -4,14 +4,6 @@
   flex-direction: column;
 }
 
-.filters-list__content {
-  background-color: var(--color-white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow-section);
-  overflow: auto;
-  padding: 1.5rem;
-}
-
 .filters-list__parameters {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -45,5 +37,24 @@
 
   .filters-list__parameters {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .filters-list__parameters {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .filters__buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .filters-list__parameters {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 }

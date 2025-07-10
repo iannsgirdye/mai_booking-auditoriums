@@ -71,3 +71,28 @@
     display: none;
   }
 }
+
+@media (max-width: 380px) {
+  .nav {
+    padding: 1rem;
+  }
+  
+  .nav__container {
+    padding-inline: 1%;
+  }
+  
+  .nav__header {
+    font-size: 1.25rem;
+  }
+  
+  .nav__burger {
+    width: 2rem;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+  }
+  
+  .nav__burger-line {
+    width: 1.5rem;
+    height: 0.2rem;
+  }
+}
