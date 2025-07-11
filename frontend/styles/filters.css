@@ -16,6 +16,17 @@
   grid-column: 1 / -1;
 }
 
+.filter--part {
+  display: flex;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+}
+
+.filter--subpart {
+  display: flex;
+  column-gap: 1rem;
+}
+
 .filters__buttons {
   margin-top: 1rem;
 }
@@ -26,7 +37,7 @@
   }
 
   .filters-list__parameters {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -45,16 +56,8 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
-  
-  .filters__buttons {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
 
-@media (max-width: 380px) {
-  .filters-list__parameters {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+  .filter--part {
+    flex-direction: column;
   }
 }
