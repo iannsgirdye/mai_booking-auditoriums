@@ -65,34 +65,3 @@
     display: flex;
   }
 }
-
-@media (max-width: 480px) {
-  .navigation__title-part--second {
-    display: none;
-  }
-}
-
-@media (max-width: 380px) {
-  .navigation {
-    padding: 1rem;
-  }
-  
-  .navigation__container {
-    padding-inline: 1%;
-  }
-  
-  .navigation__header {
-    font-size: 1.25rem;
-  }
-  
-  .navigation__burger {
-    width: 2rem;
-    height: 1.5rem;
-    margin-left: 0.5rem;
-  }
-  
-  .navigation__burger-line {
-    width: 1.5rem;
-    height: 0.2rem;
-  }
-}
