@@ -14,7 +14,7 @@
   box-shadow: var(--box-shadow-card-hover);
   min-width: 20rem;
   max-width: 90vw;
-  width: 100%;
+  width: 95%;
   max-height: 90vh;
   overflow-y: auto;
 }
@@ -215,48 +215,4 @@
 
 .modal__action--cancel {
   color: var(--color-red);
-}
-
-@media (max-width: 600px) {
-  .modal__container {
-    min-width: 0;
-    max-width: 95vw;
-    margin: 1rem;
-  }
-  
-  .modal__content {
-    padding: 1rem;
-  }
-  
-  .modal__title {
-    padding: 1rem;
-  }
-  
-  .modal__inputs-group {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .modal__container {
-    max-width: 98vw;
-    margin: 0.5rem;
-  }
-  
-  .modal__content {
-    padding: 0.75rem;
-  }
-  
-  .modal__title {
-    padding: 0.75rem;
-  }
-  
-  .modal__tabs {
-    gap: 0.5rem;
-  }
-  
-  .modal__tab {
-    font-size: 1rem;
-  }
 }
