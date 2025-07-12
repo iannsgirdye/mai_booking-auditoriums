@@ -108,6 +108,10 @@
 }
 
 @media (max-width: 1024px) {
+  .booking-info__content {
+    gap: 1.25rem;
+  }
+
   .booking-form__parameters {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -118,6 +122,10 @@
 }
 
 @media (max-width: 768px) {
+  .booking-info__content {
+    gap: 1rem; 
+  }
+
   .booking-form__parameters {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -134,6 +142,8 @@
 @media (max-width: 480px) {
   .booking-info__content {
     grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 1rem;
   }
 
   .booking-card--form {
