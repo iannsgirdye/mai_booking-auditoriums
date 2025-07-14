@@ -120,6 +120,15 @@
   font-weight: 600;
 }
 
+.modal__data-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  max-height: 15rem;
+  overflow: auto;
+
+}
+
 .modal__inputs-group {
   display: flex;
   gap: 1rem;

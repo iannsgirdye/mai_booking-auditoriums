@@ -94,7 +94,8 @@
   font-weight: bold;
 }
 
-.booking-busy__user {
+.booking-busy__user,
+.booking-busy__room {
   font-style: italic;
 }
 
