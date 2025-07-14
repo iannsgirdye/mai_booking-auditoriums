@@ -32,20 +32,6 @@
 }
 
 @media (max-width: 1024px) {
-  .filters-list {
-    margin-block: 2.25rem;
-  }
-
-  .filters-list__parameters {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .filters-list {
-    margin-block: 2rem;
-  }
-
   .filters-list__parameters {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -54,7 +40,6 @@
 @media (max-width: 480px) {
   .filters-list__parameters {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
   }
 
   .filter--part {
