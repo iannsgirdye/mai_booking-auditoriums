@@ -112,27 +112,8 @@
 }
 
 @media (max-width: 1024px) {
-  .rooms-list {
-    margin-block: 2.25rem;
-  }
-
   .rooms-list__content {
     grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .rooms-list {
-    margin-block: 2rem;
-  }
-
-  .rooms-list__content {
-    gap: 1rem;
-  }
-
-  .room-card {
-    padding: 1rem;
   }
 }
 
