@@ -1,1 +1,1 @@
-# mai_booking-auditorium
+# Бронирование комнат на IT-этаже МАИ
