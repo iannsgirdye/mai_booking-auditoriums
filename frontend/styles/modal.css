@@ -109,6 +109,16 @@
   gap: 1rem;
 }
 
+.modal__data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.modal__data-label {
+  font-weight: 600;
+}
+
 .modal__inputs-group {
   display: flex;
   gap: 1rem;
