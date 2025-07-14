@@ -44,6 +44,9 @@ html {
 body {
   background-color: var(--color-light-gray);
   user-select: none;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vw;
 }
 
 main {
