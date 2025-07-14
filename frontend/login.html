@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Бронирование комнат на IT-этаже МАИ">
+    <meta name="keywords" content="МАИ, бронирование, комнаты, IT-этаж, лекториум, лаборатория, переговорная">
+    <meta name="author" content="iannsgirdye">
+    <meta name="theme-color" content="#ffffff">
+    <title>Бронирование комнат на IT-этаже МАИ</title>
+    <link rel="icon" href="./icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+  </head>
+  <body>  
+    <main>
+      <div id="authModal" class="modal modal--auth">
+        <div class="modal__container modal__container--auth">
+          <div class="modal__title">
+            <h3 class="modal__header">Вход</h3>
+            <button id="closeAuthModal" class="modal__close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal__content">
+            <form id="authLoginForm" class="modal__block block">
+              <div class="input-zone">
+                <label class="modal__label label" for="authLoginLogin">Логин</label>
+                <input class="modal__input input" id="authLoginLogin" type="text">
+              </div>
+              <div class="input-zone">
+                <label class="modal__label label" for="authLoginPassword">Пароль</label>
+                <input class="modal__input input" id="authLoginPassword" type="password" >
+              </div>
+              <div class="modal__inputs-group">
+                <div class="input-zone--checkbox">
+                  <input class="modal__input-checkbox input--checkbox" id="authRememberMe" type="checkbox" >
+                  <label class="modal__label-checkbox label--checkbox" for="authRememberMe" >Запомнить меня</label>
+                </div>
+                <div>
+                  <a href="#" class="modal__link link">Забыли пароль?</a>
+                </div>
+              </div>
+              <button type="submit" class="modal__button button">Войти</button>
+            </form>
+            <form id="authRegisterForm" class="modal__block block hidden">
+              <div class="input-zone">
+                <label class="modal__label label" for="authRegisterName">ФИО</label>
+                <input class="modal__input input" id="authRegisterName" type="text">
+              </div>
+              <div class="input-zone">
+                <label class="modal__label label" for="authRegisterLogin">Логин</label>
+                <input class="modal__input input" id="authRegisterLogin" type="text">
+              </div>
+              <div class="input-zone">
+                <label class="modal__label label" for="authRegisterPassword">Пароль</label>
+                <input class="modal__input input" id="authRegisterPassword" type="password">
+              </div>
+              <div class="input-zone">
+                <label class="modal__label label" for="authRegisterConfirmPassword">Повтор пароля</label>
+                <input class="modal__input input" id="authRegisterConfirmPassword" type="password">
+              </div>
+              <div class="input-zone--checkbox">
+                <input class="modal__checkbox" id="authAgreeTerms" type="checkbox">
+                <label class="modal__checkbox-label" for="authAgreeTerms">
+                  Я согласен с <a href="#" class="modal__link link">условиями использования</a>
+                </label>
+              </div>
+              <button type="submit" class="modal__button button">Зарегистрироваться</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
