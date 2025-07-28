@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Бронирование комнат на IT-этаже МАИ">
+    <meta name="keywords" content="МАИ, бронирование, комнаты, IT-этаж, лекториум, лаборатория, переговорная">
+    <meta name="author" content="iannsgirdye">
+    <meta name="theme-color" content="#ffffff">
+    <title>Бронирование комнат на IT-этаже МАИ</title>
+    <link rel="icon" href="../icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/rooms.css">
+    <link rel="stylesheet" href="../styles/booking.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <script src="../main.js"></script>
+  </head>
+  <body>
+    <header class="navigation">
+      <nav class="navigation__container">
+        <h1 class="navigation__header">
+          <a href="../index.html" class="link link--header">
+            <div class="navigation__title">
+              <span class="navigation__title-part">Бронирование комнат&nbsp;</span>
+              <span class="navigation__title-part--second">на IT-этаже МАИ</span>
+            </div>
+          </a>
+        </h1>
+        <div class="navigation__buttons buttons">
+          <button id="button-account" class="navigation__button button">Личный кабинет</button>
+          <button id="button-map" class="navigation__button button button--secondary">Карта этажа</button>
+        </div>
+        <button class="navigation__burger" id="navigationBurger" title="Открыть меню">
+          <span class="navigation__burger-line"></span>
+          <span class="navigation__burger-line"></span>
+          <span class="navigation__burger-line"></span>
+        </button>
+      </nav>
+    </header>
+    <main class="booking-info">
+      <h2 class="booking-info__header section-header">Забронировать</h2>
+      <div class="booking-info__content">
+        <section class="room-card room-card--booking room-card__container block ">
+          <div class="room-card__header">
+            <h3 class="room-card__name">it-0</h3>
+            <span class="room-card__status room-card__status--free">Свободна</span>
+          </div>
+          <div class="room-card__description">
+            <span class="room-card__function">Пространство самоподготовки</span>
+            <span class="room-card__person">Linus Torvalds</span>
+          </div>
+          <div class="room-card__info">
+            <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: 32 человека</div>
+            <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+            <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: доска, зарядки, телевизор, гардероб, диваны</div>
+          </div>
+        </section>
+        <section class="booking-photo block">
+          <h3 class="booking-busy__header" hidden>Фотографии</h3>
+          <div class="booking-photo__container">
+            <div class="booking-photo__content">
+              <img src="../images/rooms/it-0-1.jpg" alt="Комната it-0, фото 1" class="booking-photo__image">
+              <img src="../images/rooms/it-0-2.jpg" alt="Комната it-0, фото 2" class="booking-photo__image">
+              <img src="../images/rooms/it-0-3.jpg" alt="Комната it-0, фото 3" class="booking-photo__image">
+              <img src="../images/rooms/it-0-4.jpg" alt="Комната it-0, фото 4" class="booking-photo__image">
+              <img src="../images/rooms/it-0-5.jpg" alt="Комната it-0, фото 5" class="booking-photo__image">
+            </div>
+            <i class="fa-solid fa-arrows-up-down icon-arrows icon-arrows--horizontal"></i>
+          </div>
+        </section>
+        <section class="booking-form block">
+          <h3 class="booking-busy__header" hidden>Бронирование</h3>
+          <form class="booking-form__content">
+            <div class="booking-form__parameters">
+              <div class="parameter input-zone">
+                <label class="parameter__label label" for="parameter-time-start">Время начала</label>
+                <input
+                  class="parameter__input input"
+                  id="parameter-time-start"
+                  type="time"
+                  required
+                >
+              </div>
+              <div class="parameter input-zone">
+                <label class="parameter__label label" for="parameter-time-end">Время окончания</label>
+                <input
+                  class="parameter__input input"
+                  id="parameter-time-end"
+                  type="time"
+                  required
+                >
+              </div>
+              <div class="parameter input-zone">
+                <label class="parameter__label label" for="parameter-formPurpose">Цель бронирования</label>
+                <select 
+                  id="parameter-formPurpose"
+                  class="parameter__input input"
+                  required
+                >
+                  <option value="" disabled selected>Не выбрано</option>
+                  <option value="event">Мероприятие</option>
+                  <option value="lecture">Лекция</option>
+                  <option value="seminar">Семинар</option>
+                  <option value="exam">Экзамен</option>
+                  <option value="meeting">Собрание</option>
+                  <option value="other">Другое</option>
+                </select>
+              </div>
+              <div class="parameter parameter--long input-zone">
+                <label class="parameter__label label" for="parameter-formDescription">Дополнительная информация</label>
+                <textarea 
+                  id="parameter-formDescription"
+                  class="parameter__textarea textarea"
+                  placeholder="Опишите цель бронирования"
+                ></textarea>
+              </div>
+            </div>
+            <div class="booking-form__buttons buttons">
+              <button 
+                type="reset"
+                class="parameters__button button button--secondary"
+              >Сбросить</button>
+              <button 
+                type="submit"
+                class="parameters__button button" 
+                id="form-submit"
+              >Отправить заявку</button>
+            </div>
+          </form>
+        </section>
+        <section class="booking-busy block">
+          <h3 class="booking-busy__header" hidden>Забронировано</h3>
+          <div class="booking-busy__container">
+            <div class="booking-busy__content">
+              <div class="booking-busy__item">
+                <span class="booking-busy__datetime">10.07.2025 10:00-12:00</span>
+                <span class="booking-busy__user">Крылов С.С.</span>
+                <span class="booking-busy__purpose">
+                  Мероприятие "День открытых дверей для абитуриентов базового высшего образования"
+                </span>
+              </div>
+              <div class="booking-busy__item">
+                <span class="booking-busy__datetime">11.07.2025 10:00-12:00</span>
+                <span class="booking-busy__user">Крылов С.С.</span>
+                <span class="booking-busy__purpose">
+                  Мероприятие "День открытых дверей для абитуриентов базового высшего образования"
+                </span>
+              </div>
+              <div class="booking-busy__item">
+                <span class="booking-busy__datetime">12.07.2025 10:00-12:00</span>
+                <span class="booking-busy__user">Крылов С.С.</span>
+                <span class="booking-busy__purpose">
+                  Мероприятие "День открытых дверей для абитуриентов базового высшего образования"
+                </span>
+              </div>
+              <div class="booking-busy__item">
+                <span class="booking-busy__datetime">13.07.2025 10:00-12:00</span>
+                <span class="booking-busy__user">Крылов С.С.</span>
+                <span class="booking-busy__purpose">
+                  Мероприятие "День открытых дверей для абитуриентов базового высшего образования"
+                </span>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrows-up-down icon-arrows"></i>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer__content">
+        <p class="footer__text">
+          &copy; 2025 <a href="https://github.com/iannsgirdye" class="link" target="_blank">iannsgirdye</a>
+        </p>
+        <p class="footer__text">
+          Сервис разработан за 4 дня в рамках ознакомительной практики в МАИ.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

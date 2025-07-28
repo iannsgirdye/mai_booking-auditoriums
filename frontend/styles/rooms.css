@@ -1,0 +1,124 @@
+.rooms-list {
+  margin-block: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.rooms-list__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.room-card {
+  font-size: 1rem;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  height: 100%;
+}
+
+.room-card--booking {
+  cursor: default;
+}
+
+.room-card__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.room-card__link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.room-card:hover:not(.room-card--booking) {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-card-hover);
+}
+
+.room-card__header {
+  display: flex;
+  column-gap: 2rem;
+  justify-content: space-between;
+}
+
+.room-card__name {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.room-card__status {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.15rem 0.7rem;
+  border-radius: var(--border-radius);
+  display: inline-block;
+  align-self: start;
+}
+
+.room-card__status--free {
+  background-color: var(--color-light-green);
+  color: var(--color-green);
+}
+
+.room-card__status--part {
+  background-color: var(--color-yellow);
+  color: var(--color-brown);
+}
+
+.room-card__status--occupied {
+  background-color: var(--color-light-red);
+  color: var(--color-red);
+}
+
+.room-card__status--disabled {
+  background-color: var(--color-gray);
+  color: var(--color-white);
+}
+
+.room-card__description {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-light-black);
+  min-height: 3rem;
+}
+
+.room-card__function {
+  font-size: 1rem;
+}
+
+.room-card__person {
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.room-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-light-black);
+}
+
+.room-card__info-element {
+  display: grid;
+  grid-template-columns: 20px auto;
+  column-gap: 0.25rem;
+  align-items: baseline;
+}
+
+@media (max-width: 1024px) {
+  .rooms-list__content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .rooms-list__content {
+    grid-template-columns: 1fr;
+  }
+}

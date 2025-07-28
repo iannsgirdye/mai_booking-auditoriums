@@ -1,0 +1,48 @@
+.filters-list {
+  margin-block: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.filters-list__parameters {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  align-items: end;
+}
+
+.filter--things {
+  grid-column: 1 / -1;
+}
+
+.filter--part {
+  display: flex;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+}
+
+.filter--subpart {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.filters__buttons {
+  margin-top: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .filters-list__parameters {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .filters-list__parameters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filter--part {
+    flex-direction: column;
+  }
+}

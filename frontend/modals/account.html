@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Бронирование комнат на IT-этаже МАИ">
+    <meta name="keywords" content="МАИ, бронирование, комнаты, IT-этаж, лекториум, лаборатория, переговорная">
+    <meta name="author" content="iannsgirdye">
+    <meta name="theme-color" content="#ffffff">
+    <title>Бронирование комнат на IT-этаже МАИ</title>
+    <link rel="icon" href="../icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/booking.css">
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+  </head>
+  <body>
+    <main>
+      <div id="adminModal" class="modal modal--settings">
+        <div class="modal__container modal__container--settings">
+          <div class="modal__title">
+            <div class="modal__tabs">
+              <button
+                id="authTabLogin"
+                class="modal__tab modal__tab--active button"
+                style="width: 4.5rem;"
+              >Аккаунт</button>
+              <button
+                id="authTabRegister"
+                class="modal__tab button"
+                style="width: 7rem;"
+              >Настройки</button>
+            </div>
+            <button id="closeAdminModal" class="modal__close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal__content">
+            <div class="modal__block block">
+              <div class="modal__data">
+                <span class="modal__data-label" for="accountName">ФИО</span>
+                <span class="modal__data-text" id="accountName" type="text">Крылов Сергей Сергеевич</span>
+              </div>
+              <div class="modal__data">
+                <span class="modal__data-label" for="accountLogin">Логин</span>
+                <span class="modal__data-text" id="accountLogin" type="text">S.S.Krylov</span>
+              </div>
+              <div class="modal__data">
+                <span class="modal__data-label" for="accountRole">Роль</span>
+                <span class="modal__data-text" id="accountRole" type="text">Администратор</span>
+              </div>
+            </div>
+            <div class="modal__block block">
+              <div class="modal__data modal__data--booked-rooms">
+                <span class="modal__data-label">Забронированные комнаты</span>
+                <div class=" modal__data-container">
+                  <div class="booking-busy__item">
+                    <span class="booking-busy__datetime">10.07.2025 10:00-12:00</span>
+                    <span class="booking-busy__room">it-0</span>
+                    <span class="booking-busy__purpose">
+                      Мероприятие "День открытых дверей для абитуриентов базового высшего образования"
+                    </span>
+                  </div>
+                  <div class="booking-busy__item">
+                    <span class="booking-busy__datetime">11.07.2025 10:00-12:00</span>
+                    <span class="booking-busy__room">it-0</span>
+                    <span class="booking-busy__purpose">
+                      Мероприятие "День открытых дверей для абитуриентов базового высшего образования"
+                    </span>
+                  </div>
+                  <div class="booking-busy__item">
+                    <span class="booking-busy__datetime">12.07.2025 10:00-12:00</span>
+                    <span class="booking-busy__room">it-0</span>
+                    <span class="booking-busy__purpose">
+                      Мероприятие "День открытых дверей для абитуриентов базового высшего образования"
+                    </span>
+                  </div>
+                  <div class="booking-busy__item">
+                    <span class="booking-busy__datetime">13.07.2025 10:00-12:00</span>
+                    <span class="booking-busy__room">it-0</span>
+                    <span class="booking-busy__purpose">
+                      Мероприятие "День открытых дверей для абитуриентов базового высшего образования"
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
