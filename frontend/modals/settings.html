@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Бронирование комнат на IT-этаже МАИ">
+    <meta name="keywords" content="МАИ, бронирование, комнаты, IT-этаж, лекториум, лаборатория, переговорная">
+    <meta name="author" content="iannsgirdye">
+    <meta name="theme-color" content="#ffffff">
+    <title>Бронирование комнат на IT-этаже МАИ</title>
+    <link rel="icon" href="../icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+  </head>
+  <body>
+    <main>
+      <div id="adminModal" class="modal modal--settings">
+        <div class="modal__container modal__container--settings">
+          <div class="modal__title">
+            <div class="modal__tabs">
+              <button
+                id="authTabLogin"
+                class="modal__tab button"
+                style="width: 4.5rem;"
+              >Аккаунт</button>
+              <button
+                id="authTabRegister"
+                class="modal__tab modal__tab--active button"
+                style="width: 7rem;"
+              >Настройки</button>
+            </div>
+            <button id="closeAdminModal" class="modal__close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal__content">
+            <form id="authChangeLoginForm" class="modal__block block">
+              <div class="input-zone">
+                <label class="modal__label label" for="authChangeLoginLogin">Логин</label>
+                <input class="modal__input input" id="authChangeLoginLogin" type="text">
+              </div>
+              <button type="submit" class="modal__button button">Изменить логин</button>
+            </form>
+            <form id="authChangePasswordForm" class="modal__block block">
+              <div class="input-zone">
+                <label class="modal__label label" for="authChangtePasswordPassword">Пароль</label>
+                <input class="modal__input input" id="authChangePasswordPassword" type="password">
+              </div>
+              <div class="input-zone">
+                <label class="modal__label label" for="authChangePasswordConfirmPassword">Повтор пароля</label>
+                <input class="modal__input input" id="authChangePasswordConfirmPassword" type="password">
+              </div>
+              <button type="submit" class="modal__button button">Изменить пароль</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

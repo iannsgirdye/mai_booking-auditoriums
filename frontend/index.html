@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Бронирование комнат на IT-этаже МАИ">
+    <meta name="keywords" content="МАИ, бронирование, комнаты, IT-этаж, лекториум, лаборатория, переговорная">
+    <meta name="author" content="iannsgirdye">
+    <meta name="theme-color" content="#ffffff">
+    <title>Бронирование комнат на IT-этаже МАИ</title>
+    <link rel="icon" href="./icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/filters.css">
+    <link rel="stylesheet" href="./styles/rooms.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <script src="./main.js"></script>
+  </head>
+  <body>
+    <header class="navigation">
+      <nav class="navigation__container">
+        <h1 class="navigation__header">
+          <a href="./index.html" class="link link--header">
+            <div class="navigation__title">
+              <span class="navigation__title-part">Бронирование комнат&nbsp;</span>
+              <span class="navigation__title-part">на IT-этаже МАИ</span>
+            </div>
+          </a>
+        </h1>
+        <div class="navigation__buttons buttons">
+          <button id="button-login" class="navigation__button button">Вход</button>
+          <button id="button-map" class="navigation__button button button--secondary">Карта этажа</button>
+        </div>
+        <button class="navigation__burger" id="navigationBurger" title="Открыть меню">
+          <span class="navigation__burger-line"></span>
+          <span class="navigation__burger-line"></span>
+          <span class="navigation__burger-line"></span>
+        </button>
+      </nav>
+    </header>
+    <main>
+      <section class="filters-list">
+        <h2 class="filters-list__header section-header">Фильтры</h2>
+        <form class="filters-list__content block">
+          <div class="filters-list__parameters">
+            <div class="filter input-zone">
+              <label class="filter__label label" for="filter-date">Дата</label>
+              <input
+                class="filter__input input"
+                id="filter-date"
+                type="date"
+              >
+            </div>
+            <div class="filter input-zone">
+              <label class="filter__label label" for="filter-time-start">Время начала</label>
+              <input
+                class="filter__input input"
+                id="filter-time-start"
+                type="time"
+              >
+            </div>
+            <div class="filter input-zone">
+              <label class="filter__label label" for="filter-time-end">Время окончания</label>
+              <input
+                class="filter__input input"
+                id="filter-time-end"
+                type="time"
+              >
+            </div>
+            <div class="filter input-zone">
+              <label class="filter__label label" for="filter-place">Вместимость</label>
+              <input
+                class="filter__input input"
+                id="filter-place"
+                type="number"
+                placeholder="От"
+                min="0" max="200"
+              >
+            </div>
+            <div class="filter input-zone">
+              <label class="filter__label label" for="filter-type">Тип</label>
+              <select class="filter__input input" id="filter-type">
+                <option value="" selected>Не выбрано</option>
+                <option value="lectorium">Лекториум</option>
+                <option value="talking">Переговорная</option>
+                <option value="practice">Практическая</option>
+                <option value="lab">Лаборатория</option>
+              </select>
+            </div>
+            <div class="filter filter--things input-zone">
+              <label class="filter__label label">Инфраструктура</label>
+              <div class="input-zone--group">
+                <div class="filter--part">
+                  <div class="filter--subpart">
+                    <div class="input-zone--checkbox">
+                      <input 
+                        class="filter__input input"
+                        id="filter-things-air-conditioner"
+                        name="filter-things"
+                        type="checkbox"
+                      >
+                      <label
+                        class="filter__label label--checkbox"
+                        for="filter-things-air-conditioner"
+                      >Кондиционер</label>
+                    </div>
+                    <div class="input-zone--checkbox">
+                      <input 
+                        class="filter__input input"
+                        id="filter-things-whiteboard"
+                        name="filter-things"
+                        type="checkbox"
+                      >
+                      <label
+                        class="filter__label label--checkbox"
+                        for="filter-things-whiteboard"
+                      >Доска</label>
+                    </div>
+                  </div>
+                  <div class="filter--subpart">
+                    <div class="input-zone--checkbox">
+                      <input 
+                        class="filter__input input"
+                        id="filter-things-projector"
+                        name="filter-things"
+                        type="checkbox"
+                      >
+                      <label
+                        class="filter__label label--checkbox"
+                        for="filter-things-projector"
+                      >Проектор</label>
+                    </div>
+                    <div class="input-zone--checkbox">
+                      <input 
+                        class="filter__input input"
+                        id="filter-things-computers"
+                        name="filter-things"
+                        type="checkbox"
+                      >
+                      <label
+                        class="filter__label label--checkbox"
+                        for="filter-things-computers"
+                      >Компьютеры</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="filter--part">
+                  <div class="filter--subpart">
+                    <div class="input-zone--checkbox">
+                      <input 
+                        class="filter__input input"
+                        id="filter-things-charging"
+                        name="filter-things"
+                        type="checkbox"
+                      >
+                      <label 
+                        class="filter__label label--checkbox" 
+                        for="filter-things-charging"
+                      >Зарядки</label>
+                    </div>
+                    <div class="input-zone--checkbox">
+                      <input 
+                        class="filter__input input"
+                        id="filter-things-tv"
+                        name="filter-things"
+                        type="checkbox"
+                      >
+                      <label 
+                        class="filter__label label--checkbox" 
+                        for="filter-things-tv"
+                      >Телевизор</label>
+                    </div>
+                  </div>
+                  <div class="filter--subpart">
+                    <div class="input-zone--checkbox">
+                      <input 
+                        class="filter__input input"
+                        id="filter-things-wardrobe"
+                        name="filter-things"
+                        type="checkbox"
+                      >
+                      <label
+                        class="filter__label label--checkbox"
+                        for="filter-things-wardrobe"
+                      >Гардероб</label>
+                    </div>
+                    <div class="input-zone--checkbox">
+                      <input 
+                        class="filter__input input"
+                        id="filter-things-sofas"
+                        name="filter-things"
+                        type="checkbox"
+                      >
+                      <label 
+                        class="filter__label label--checkbox" 
+                        for="filter-things-sofas"
+                      >Диваны</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="filters__buttons buttons">
+            <button class="filters__button button" type="submit">Применить</button>
+            <button class="filters__button button button--secondary" type="reset">Сбросить</button>
+          </div>
+        </form>
+      </section>
+      <section class="rooms-list">
+        <h2 class="rooms-list__header section-header">Каталог</h2> 
+        <div class="rooms-list__content">
+          <article class="room-card block">
+            <a href="./rooms/it-0.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-0</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Пространство самоподготовки</span>
+                  <span class="room-card__person">Linus Torvalds</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: 32 человека</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: доска, зарядки, телевизор, гардероб, диваны</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-1.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-1</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">VR зона</span>
+                  <span class="room-card__person">John Carmack</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-2.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-2</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Лаборатория XR</span>
+                  <span class="room-card__person">Ivan Sutherland</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-3.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-3</h3>
+                  <span class="room-card__status room-card__status--occupied">Занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Компьютерный класс - 1</span>
+                  <span class="room-card__person">Jonathan Blow</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-5.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-5</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Лекториум</span>
+                  <span class="room-card__person">Mikhail Pagosyan</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лекториум</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-6.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-6</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Лаборатория информационной безопасности</span>
+                  <span class="room-card__person">Blaise de Vigenere</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-7.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-7</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Видео студия</span>
+                  <span class="room-card__person">John Lasseter</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-8.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-8</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Лаборатория ИИ и моделирования</span>
+                  <span class="room-card__person">Alan Turing</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-9.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-9</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Лаборатория лямбда</span>
+                  <span class="room-card__person">NERV</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-10.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-10</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Переговорная</span>
+                  <span class="room-card__person">Carl Sagan</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-11.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-11</h3>
+                  <span class="room-card__status room-card__status--occupied">Занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Центр олимпиадного программирования</span>
+                  <span class="room-card__person">Zzz</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-15.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-15</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Компьютерный класс - 2</span>
+                  <span class="room-card__person">Ada Lovelace</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-16.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-16</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Сотрудники</span>
+                  <span class="room-card__person">Ulyan Pirumov</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: переговорная</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-17.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-17</h3>
+                  <span class="room-card__status room-card__status--free">Свободна</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">Компьютерный класс - 3</span>
+                  <span class="room-card__person">Niklaus Wirth</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: 38 человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: практическая</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: 23 компьютера, доска, проектор, кондиционер, гардероб</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="room-card block">
+            <a href="./rooms/it-18.html" class="room-card__link">
+              <div class="room-card__container">
+                <div class="room-card__header">
+                  <h3 class="room-card__name">it-18</h3>
+                  <span class="room-card__status room-card__status--part">Частично занята</span>
+                </div>
+                <div class="room-card__description">
+                  <span class="room-card__function">НИО-806</span>
+                  <span class="room-card__person">Navier & Stokies</span>
+                </div>
+                <div class="room-card__info">
+                  <div class="room-card__info-element"><i class="fas fa-users"></i> Вместимость: ? человек</div>
+                  <div class="room-card__info-element"><i class="fas fa-door-open"></i> Тип: лаборатория</div>
+                  <div class="room-card__info-element"><i class="fas fa-tv"></i> Инфраструктура: ?</div>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__content">
+        <p class="footer__text">
+          &copy; 2025 <a href="https://github.com/iannsgirdye" class="link" target="_blank">iannsgirdye</a>
+        </p>
+        <p class="footer__text">
+          Сервис разработан за 4 дня в рамках ознакомительной практики в МАИ.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

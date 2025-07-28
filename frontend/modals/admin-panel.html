@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Бронирование комнат на IT-этаже МАИ">
+    <meta name="keywords" content="МАИ, бронирование, комнаты, IT-этаж, лекториум, лаборатория, переговорная">
+    <meta name="author" content="iannsgirdye">
+    <meta name="theme-color" content="#ffffff">
+    <title>Бронирование комнат на IT-этаже МАИ</title>
+    <link rel="icon" href="../icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+  </head>
+  <body>
+    <main>
+      <div id="adminModal" class="modal modal--admin">
+        <div class="modal__container">
+          <div class="modal__title">
+            <h3 class="modal__header">Панель управления</h3>
+            <button id="closeAdminModal" class="modal__close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal__content">
+            <div class="modal__block block">
+              <div class="modal__buttons buttons">
+                <button class="modal__button button">Все заявки</button>
+                <button class="modal__button button">На рассмотрении</button>
+                <button class="modal__button button">Одобренные</button>
+                <button class="modal__button button">Отклонённые</button>
+              </div>
+              <div class="modal__table-wrapper">
+                <table class="modal__table">
+                  <thead class="modal__table-head">
+                    <tr>
+                      <th scope="col" class="modal__table-th">Комната</th>
+                      <th scope="col" class="modal__table-th">Дата</th>
+                      <th scope="col" class="modal__table-th">Время</th>
+                      <th scope="col" class="modal__table-th">Пользователь</th>
+                      <th scope="col" class="modal__table-th">Статус</th>
+                      <th scope="col" class="modal__table-th">Действия</th>
+                    </tr>
+                  </thead>
+                  <tbody class="modal__table-body">
+                    <tr>
+                      <td class="modal__table-td">it-2</td>
+                      <td class="modal__table-td">14.07.2025</td>
+                      <td class="modal__table-td">10:00-12:00</td>
+                      <td class="modal__table-td">Кондаратцев В.Л.</td>
+                      <td class="modal__table-td">
+                        <span class="modal__status modal__status--pending">Ожидает</span>
+                      </td>
+                      <td class="modal__table-td">
+                        <button class="modal__action modal__action--approve">Одобрить</button>
+                        <button class="modal__action modal__action--decline">Отклонить</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="modal__table-td">it-0</td>
+                      <td class="modal__table-td">16.07.2025</td>
+                      <td class="modal__table-td">14:00-16:00</td>
+                      <td class="modal__table-td">Крылов С.С.</td>
+                      <td class="modal__table-td">
+                        <span class="modal__status modal__status--approved">Подтверждено</span>
+                      </td>
+                      <td class="modal__table-td">
+                        <button class="modal__action modal__action--edit">Изменить</button>
+                        <button class="modal__action modal__action--cancel">Отменить</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="modal__table-td">it-11</td>
+                      <td class="modal__table-td">15.06.2025</td>
+                      <td class="modal__table-td">09:00-11:00</td>
+                      <td class="modal__table-td">Зайцев В.Е.</td>
+                      <td class="modal__table-td">
+                        <span class="modal__status modal__status--declined">Отклонено</span>
+                      </td>
+                      <td class="modal__table-td"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal__pagination">
+                <button class="modal__pagination-button modal__pagination-button--prev button--secondary">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="modal__pagination-button modal__pagination-button--active button--secondary">1</button>
+                <button class="modal__pagination-button button--secondary">2</button>
+                <button class="modal__pagination-button button--secondary">3</button>
+                <button class="modal__pagination-button modal__pagination-button--next button--secondary">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
